@@ -62,6 +62,8 @@ public class VistaEmpleado extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         boton_buscar = new javax.swing.JButton();
+        boton_borrar = new javax.swing.JButton();
+        boton_insertar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Club Atlético Mitre (Santiago del Estero)");
@@ -117,6 +119,20 @@ public class VistaEmpleado extends javax.swing.JFrame {
             }
         });
 
+        boton_borrar.setText("Borrar");
+        boton_borrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_borrarActionPerformed(evt);
+            }
+        });
+
+        boton_insertar.setText("Insertar");
+        boton_insertar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_insertarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -139,7 +155,9 @@ public class VistaEmpleado extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(boton_volver, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(boton_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(boton_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(boton_borrar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(boton_insertar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21))
         );
         layout.setVerticalGroup(
@@ -163,9 +181,14 @@ public class VistaEmpleado extends javax.swing.JFrame {
                             .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(boton_buscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(boton_volver)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(boton_insertar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(boton_borrar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(boton_volver)))
                 .addContainerGap(38, Short.MAX_VALUE))
         );
 
@@ -252,6 +275,40 @@ public class VistaEmpleado extends javax.swing.JFrame {
         tblDatos.setModel(tabla);
     }//GEN-LAST:event_boton_buscarActionPerformed
 
+    private void boton_borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_borrarActionPerformed
+        PreparedStatement ps;
+        
+        int fila = tblDatos.getSelectedRow();
+        String nombre = tblDatos.getModel().getValueAt(fila,0).toString();
+        String apellido = tblDatos.getModel().getValueAt(fila,1).toString();
+        
+
+
+        String sql = "delete from persona where (persona.nombre_persona=? AND persona.apellido_persona=?)";
+        
+        try{
+            con = conectar.getConexion();
+            ps = con.prepareStatement(sql);
+            ps.setString(1,nombre);
+            ps.setString(2,apellido);
+            ps.executeUpdate();         
+            ps.close();
+            con.close();
+        }
+        catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error de conexión: " + e.getMessage());
+        }                                               
+
+        
+        llenarTabla();
+    }//GEN-LAST:event_boton_borrarActionPerformed
+
+    private void boton_insertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_insertarActionPerformed
+                VistaIngresarPersona volver = new VistaIngresarPersona();
+        volver.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_boton_insertarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -295,7 +352,9 @@ public class VistaEmpleado extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton boton_borrar;
     private javax.swing.JButton boton_buscar;
+    private javax.swing.JButton boton_insertar;
     private javax.swing.JButton boton_volver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

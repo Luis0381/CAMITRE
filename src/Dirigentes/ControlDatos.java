@@ -22,7 +22,7 @@ public class ControlDatos {
         ResultSet rs;
         PreparedStatement ps;
         ArrayList<ModeloDirigente> lista = new ArrayList<>();
-        String sql = "select persona.nombre_persona,persona.apellido_persona,persona.genero_persona,persona.paisorigen_persona,dirigente.cargo_dirigente,dirigente.fecha_inicio,dirigente.fecha_fin,cuenta.tipo_cuenta FROM persona INNER JOIN dirigente ON persona.id_persona=dirigente.id_persona INNER JOIN cuenta ON dirigente.id_cuenta=cuenta.id_cuenta";
+        String sql = "select persona.nombre_persona,persona.apellido_persona,persona.genero_persona,persona.paisorigen_persona,dirigente.cargo_dirigente,dirigente.fecha_inicio,dirigente.fecha_fin,cuenta.tipo_cuenta FROM persona INNER JOIN dirigente ON persona.id_persona=dirigente.id_persona LEFT JOIN cuenta ON dirigente.id_cuenta=cuenta.id_cuenta";
         try{
             con = conectar.getConexion();
             ps = con.prepareStatement(sql);
