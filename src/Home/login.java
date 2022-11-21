@@ -262,7 +262,7 @@ public class login extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-//        asignarLookAndFeel("Windows Classic");
+        asignarLookAndFeel("Nimbus");
         
         //</editor-fold>
          
@@ -274,20 +274,20 @@ public class login extends javax.swing.JFrame {
         });
     }
     
-//    public static void asignarLookAndFeel(String laf) {
-//        try {
-//            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-//                if (laf.equals(info.getName())) {
-//                    UIManager.setLookAndFeel(info.getClassName());
-//                }
-//            }
-//        } catch (Exception e) {
-//            try {
-//                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-//            } catch (Exception e2) {
-//            }
-//        }
-//    }
+    public static void asignarLookAndFeel(String laf) {
+        try {
+            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+                if (laf.equals(info.getName())) {
+                    UIManager.setLookAndFeel(info.getClassName());
+                }
+            }
+        } catch (Exception e) {
+            try {
+                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            } catch (Exception e2) {
+            }
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton boton_ingresar;

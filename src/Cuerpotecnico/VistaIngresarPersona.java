@@ -6,13 +6,20 @@ package Cuerpotecnico;
 
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author 12Mat
  */
 public class VistaIngresarPersona extends javax.swing.JFrame {
-
+        private Conectar conectar;
+        private Connection con;
     /**
      * Creates new form VistaIngresar
      */
@@ -20,6 +27,9 @@ public class VistaIngresarPersona extends javax.swing.JFrame {
         initComponents();
         setIconImage(getIconImage());
         setLocationRelativeTo(null);
+        
+        conectar = new Conectar();
+
     }
     
     //Se establece el icono de la vista
@@ -193,7 +203,37 @@ public class VistaIngresarPersona extends javax.swing.JFrame {
     }//GEN-LAST:event_boton_restablecerActionPerformed
 
     private void boton_siguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_siguienteActionPerformed
-        //Cargar en sql
+
+        ResultSet rs;
+        PreparedStatement ps;
+        
+        String c_dni = jTextField1.getText().trim();
+        String c_nombre = jTextField2.getText().trim();
+        String c_apellido = jTextField3.getText().trim();
+        String c_fechaNac = jTextField5.getText().trim();
+        String c_genero = jTextField4.getText().trim();
+        String c_pais = jTextField6.getText().trim();
+
+        String sql = "insert into persona (dni_persona,nombre_persona,apellido_persona,fecha_nacimiento,genero_persona,paisorigen_persona) Values (?,?,?,?,?,?)";
+        
+        try{
+            con = conectar.getConexion();
+            ps = con.prepareStatement(sql);
+            ps.setString(1,c_dni);
+            ps.setString(2,c_nombre);
+            ps.setString(3,c_apellido);
+            ps.setString(4,c_fechaNac);
+            ps.setString(5,c_genero);
+            ps.setString(6,c_pais);
+            ps.executeUpdate();         
+            ps.close();
+            con.close();
+        }
+        catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error de conexión: " + e.getMessage());
+        }                                               
+
+        
         VistaIngresarCuerpo volver = new VistaIngresarCuerpo();
         volver.setVisible(true);
         setVisible(false);

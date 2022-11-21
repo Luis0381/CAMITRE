@@ -69,6 +69,7 @@ public class VistaCuerpotecnico extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
         boton_ingresar = new javax.swing.JButton();
         boton_buscar = new javax.swing.JButton();
+        boton_borrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Club Atlético Mitre (Santiago del Estero)");
@@ -138,6 +139,13 @@ public class VistaCuerpotecnico extends javax.swing.JFrame {
             }
         });
 
+        boton_borrar.setText("Borrar");
+        boton_borrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_borrarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -165,7 +173,8 @@ public class VistaCuerpotecnico extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(boton_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(boton_ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(boton_ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(boton_borrar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
@@ -190,6 +199,8 @@ public class VistaCuerpotecnico extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(boton_ingresar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(boton_borrar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(boton_volver))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -269,7 +280,7 @@ public class VistaCuerpotecnico extends javax.swing.JFrame {
         
         DefaultTableModel tabla =  new DefaultTableModel();
         String[] fila = new String[45];
-        tabla.addColumn("Dni");
+        tabla.addColumn("DNI");
         tabla.addColumn("Nombre");
         tabla.addColumn("Apellido");
         tabla.addColumn("Sueldo");
@@ -287,6 +298,33 @@ public class VistaCuerpotecnico extends javax.swing.JFrame {
         }
         tblDatos.setModel(tabla);
     }//GEN-LAST:event_boton_buscarActionPerformed
+
+    private void boton_borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_borrarActionPerformed
+        
+        PreparedStatement ps;
+        
+        int fila = tblDatos.getSelectedRow();
+        String dni = tblDatos.getModel().getValueAt(fila,0).toString();
+        
+
+
+        String sql = "delete from persona where persona.dni_persona=?";
+        
+        try{
+            con = conectar.getConexion();
+            ps = con.prepareStatement(sql);
+            ps.setString(1,dni);
+            ps.executeUpdate();         
+            ps.close();
+            con.close();
+        }
+        catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error de conexión: " + e.getMessage());
+        }                                               
+
+        
+        llenarTabla();
+    }//GEN-LAST:event_boton_borrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -389,6 +427,7 @@ public class VistaCuerpotecnico extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton boton_borrar;
     private javax.swing.JButton boton_buscar;
     private javax.swing.JButton boton_ingresar;
     private javax.swing.JButton boton_volver;
