@@ -127,12 +127,12 @@ public class personas extends javax.swing.JFrame {
             ArrayList<modeloPersonas> lista = new ArrayList<>();
             while(rs.next()){
                 datos = new modeloPersonas();
-                datos.setid(rs.getInt("id_persona"));
-                datos.setdni(rs.getInt("dni_persona"));
-                datos.setnombre(rs.getString("nombre_persona"));
-                datos.setapellido(rs.getString("apellido_persona"));
-                datos.setgenero(rs.getString("genero_persona"));
-                datos.paisorigen(rs.getString("paisorigen_persona"));
+                datos.setId(rs.getInt("id_persona"));
+                datos.setDni(rs.getInt("dni_persona"));
+                datos.setNombre(rs.getString("nombre_persona"));
+                datos.setApellido(rs.getString("apellido_persona"));
+                datos.setGenero(rs.getString("genero_persona"));
+                datos.setPaisorigen(rs.getString("paisorigen_persona"));
                 lista.add(datos);
             }
             con.close();
