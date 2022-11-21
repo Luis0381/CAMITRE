@@ -6,19 +6,28 @@ package Futbolistas;
 
 import Home.menuprincipal;
 import static java.lang.String.valueOf;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Webmaster
  */
-public class VistaDatos extends javax.swing.JFrame {
-
+public class VistaFutbolistas extends javax.swing.JFrame {
+        private Conectar conectar;
+        private ModeloFutbolista modelo;
+        private Connection con;
     /**
      * Creates new form VistaDatos
      */
-    public VistaDatos() {
+    public VistaFutbolistas() {
+                conectar = new Conectar();
+        modelo = new ModeloFutbolista();
         initComponents();
     }
 
@@ -102,7 +111,7 @@ public class VistaDatos extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -110,8 +119,8 @@ public class VistaDatos extends javax.swing.JFrame {
                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 751, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField1)
                             .addComponent(jTextField2)
                             .addComponent(jTextField3)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 849, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -175,8 +184,70 @@ public class VistaDatos extends javax.swing.JFrame {
 
     private void boton_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_buscarActionPerformed
 
-        String buscarApellido = jTextField1.getText().trim();
-//        this.buscarFutbolista(buscarApellido);
+        
+        String buscarNombre = jTextField1.getText().trim();
+        String buscarApellido = jTextField2.getText().trim();
+        String buscarApodo = jTextField3.getText().trim();
+
+
+        ModeloFutbolista datos;
+        ResultSet rs;
+        PreparedStatement ps;
+        ArrayList<ModeloFutbolista> lista = new ArrayList<>();
+        String sql = "select persona.nombre_persona,persona.apellido_persona,futbolista.apodo_futbolista,futbolista.posición_futbolista,futbolista.altura_futbolista,futbolista.piernahabil_futbolista,futbolista.sueldo_futbolista,futbolista.inicio_contrato,futbolista.fin_contrato FROM futbolista INNER JOIN persona ON futbolista.id_persona=persona.id_persona WHERE persona.nombre_persona LIKE ? AND persona.apellido_persona LIKE ? AND futbolista.apodo_futbolista LIKE ?";
+        
+        try{
+            con = conectar.getConexion();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, "%" + buscarNombre + "%");
+            ps.setString(2, "%" + buscarApellido + "%");
+            ps.setString(3, "%" + buscarApodo + "%");
+            rs = ps.executeQuery();
+            while(rs.next()){
+                datos = new ModeloFutbolista();
+                datos.setNombre(rs.getString("persona.nombre_persona")); 
+                datos.setApellido(rs.getString("persona.apellido_persona")); 
+                datos.setApodo(rs.getString("futbolista.apodo_futbolista")); 
+                datos.setPosicion(rs.getString("futbolista.posición_futbolista")); 
+                datos.setAltura(rs.getInt("futbolista.altura_futbolista")); 
+                datos.setPiernahabil_futbolista(rs.getString("futbolista.piernahabil_futbolista")); 
+                datos.setSueldo(rs.getFloat("futbolista.sueldo_futbolista")); 
+                datos.setInicio_contrato(rs.getDate("futbolista.inicio_contrato").toString()); 
+                datos.setFin_contrato(rs.getDate("futbolista.fin_contrato").toString()); 
+                lista.add(datos);             
+            }            
+            rs.close();
+            ps.close();
+            con.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error de conexión: " + e.getMessage());
+        }
+        
+        DefaultTableModel tabla =  new DefaultTableModel();
+        String[] fila = new String[45];
+        tabla.addColumn("Nombre");
+        tabla.addColumn("Apellido");
+        tabla.addColumn("Apodo");
+        tabla.addColumn("Posicion");
+        tabla.addColumn("Altura");
+        tabla.addColumn("Pierna Habil");
+        tabla.addColumn("Sueldo");
+        tabla.addColumn("Inicio de Contrato");
+        tabla.addColumn("Fin de Contrato");
+        
+        for(int f=0; f<lista.size();f++){
+            fila[0] = lista.get(f).getNombre();
+            fila[1] = lista.get(f).getApellido();
+            fila[2] = lista.get(f).getApodo();
+            fila[3] = lista.get(f).getPosicion();
+            fila[4] = valueOf(lista.get(f).getAltura());
+            fila[5] = lista.get(f).getPiernahabil_futbolista();
+            fila[6] = valueOf(lista.get(f).getSueldo());
+            fila[7] = lista.get(f).getInicio_contrato();
+            fila[8] = lista.get(f).getFin_contrato();
+            tabla.addRow(fila);
+        }
+        tblDatos.setModel(tabla);
     }//GEN-LAST:event_boton_buscarActionPerformed
 
     /**
@@ -196,21 +267,23 @@ public class VistaDatos extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VistaDatos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaFutbolistas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VistaDatos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaFutbolistas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VistaDatos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaFutbolistas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VistaDatos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaFutbolistas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VistaDatos().setVisible(true);
+                new VistaFutbolistas().setVisible(true);
             }
         });
     }
@@ -237,6 +310,7 @@ public class VistaDatos extends javax.swing.JFrame {
         String[] fila = new String[45];
         tabla.addColumn("Nombre");
         tabla.addColumn("Apellido");
+        tabla.addColumn("Apodo");
         tabla.addColumn("Posicion");
         tabla.addColumn("Altura");
         tabla.addColumn("Pierna Habil");
@@ -247,12 +321,13 @@ public class VistaDatos extends javax.swing.JFrame {
         for(int f=0; f<datos.size();f++){
             fila[0] = datos.get(f).getNombre();
             fila[1] = datos.get(f).getApellido();
-            fila[2] = datos.get(f).getPosicion();
-            fila[3] = valueOf(datos.get(f).getAltura());
-            fila[4] = datos.get(f).getPiernahabil_futbolista();
-            fila[5] = valueOf(datos.get(f).getSueldo());
-            fila[6] = datos.get(f).getInicio_contrato();
-            fila[7] = datos.get(f).getFin_contrato();
+            fila[2] = datos.get(f).getApodo();
+            fila[3] = datos.get(f).getPosicion();
+            fila[4] = valueOf(datos.get(f).getAltura());
+            fila[5] = datos.get(f).getPiernahabil_futbolista();
+            fila[6] = valueOf(datos.get(f).getSueldo());
+            fila[7] = datos.get(f).getInicio_contrato();
+            fila[8] = datos.get(f).getFin_contrato();
             tabla.addRow(fila);
         }
         tblDatos.setModel(tabla);

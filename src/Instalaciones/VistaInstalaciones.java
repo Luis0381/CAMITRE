@@ -4,7 +4,13 @@
  */
 package Instalaciones;
 
+import Futbolistas.ModeloFutbolista;
 import Home.menuprincipal;
+import static java.lang.String.valueOf;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -15,10 +21,15 @@ import javax.swing.table.DefaultTableModel;
  */
 public class VistaInstalaciones extends javax.swing.JFrame {
 
+           private Futbolistas.Conectar conectar;
+        private ModeloFutbolista modelo;
+        private Connection con;
     /**
      * Creates new form VistaDatos
      */
     public VistaInstalaciones() {
+                        conectar = new Futbolistas.Conectar();
+        modelo = new ModeloFutbolista();
         initComponents();
     }
 
@@ -53,9 +64,9 @@ public class VistaInstalaciones extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Instalaciones");
 
-        jLabel3.setText("Tipo:");
+        jLabel3.setText("Disponibilidad:");
 
-        jLabel4.setText("Disponibilidad:");
+        jLabel4.setText("Tipo:");
 
         jTextField1.setToolTipText("Ingrese el nombre que desea buscar");
         jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -150,7 +161,47 @@ public class VistaInstalaciones extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField2KeyPressed
 
     private void boton_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_buscarActionPerformed
-        // TODO add your handling code here:
+        String buscarTipo = jTextField1.getText().trim();
+        String buscarDisponibilidad = jTextField2.getText().trim();
+
+        ModeloInstalacion datos;
+        ResultSet rs;
+        PreparedStatement ps;
+        ArrayList<ModeloInstalacion> lista = new ArrayList<>();
+        String sql = "select id_instalacion,disponibilidad_instalacion, tipo_instalacion FROM instalacion WHERE tipo_instalacion LIKE ? AND disponibilidad_instalacion LIKE ?";
+        
+        try{
+            con = conectar.getConexion();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, "%" + buscarTipo + "%");
+            ps.setString(2, "%" + buscarDisponibilidad + "%"); //Solo mayusc
+            rs = ps.executeQuery();
+            while(rs.next()){
+                datos = new ModeloInstalacion();
+                datos.setId(rs.getInt("id_instalacion"));
+                datos.setTipo(rs.getString("tipo_instalacion")); 
+                datos.setDisponibilidad(rs.getString("disponibilidad_instalacion")); 
+                lista.add(datos);             
+            }                    
+            rs.close();
+            ps.close();
+            con.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error de conexión: " + e.getMessage());
+        }
+        
+        DefaultTableModel tabla =  new DefaultTableModel();
+        String[] fila = new String[45];
+        tabla.addColumn("ID");
+        tabla.addColumn("Tipo");
+        tabla.addColumn("Disponibilidad");        
+        for(int f=0; f<lista.size();f++){
+            fila[0] = lista.get(f).getId().toString();
+            fila[1] = lista.get(f).getTipo();
+            fila[2] = lista.get(f).getDisponibilidad();
+            tabla.addRow(fila);
+        }
+        tblDatos.setModel(tabla);
     }//GEN-LAST:event_boton_buscarActionPerformed
 
     private void boton_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_volverActionPerformed

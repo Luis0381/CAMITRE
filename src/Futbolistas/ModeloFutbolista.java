@@ -3,6 +3,7 @@ package Futbolistas;
 public class ModeloFutbolista {
     private String nombre;
     private String apellido;
+    private String apodo;
     private String posicion;
     private Integer altura;
     private String piernahabil_futbolista;
@@ -74,4 +75,14 @@ public class ModeloFutbolista {
         this.fin_contrato = fin_contrato;
     }
 
+    public String getApodo() {
+        return apodo;
+    }
+
+    public void setApodo(String apodo) {
+        this.apodo = apodo;
+    }
+
+    
+    
 }

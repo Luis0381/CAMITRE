@@ -4,7 +4,7 @@
  */
 package Home;
 
-import Futbolistas.VistaDatos;
+import Futbolistas.VistaFutbolistas;
 import Instalaciones.VistaInstalaciones;
 import javax.swing.JOptionPane;
 
@@ -186,7 +186,7 @@ public class menuprincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_Boton_salirActionPerformed
 
     private void Boton_FutbolistasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_FutbolistasActionPerformed
-        VistaDatos futbolistas = new VistaDatos();
+        VistaFutbolistas futbolistas = new VistaFutbolistas();
         futbolistas.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_Boton_FutbolistasActionPerformed

@@ -23,7 +23,7 @@ public class ControlDatos {
         ResultSet rs;
         PreparedStatement ps;
         ArrayList<ModeloFutbolista> lista = new ArrayList<>();
-        String sql = "select persona.nombre_persona,persona.apellido_persona,futbolista.posición_futbolista,futbolista.altura_futbolista,futbolista.piernahabil_futbolista,futbolista.sueldo_futbolista,futbolista.inicio_contrato,futbolista.fin_contrato FROM futbolista INNER JOIN persona ON futbolista.id_persona=persona.id_persona";
+        String sql = "select persona.nombre_persona,persona.apellido_persona,futbolista.apodo_futbolista,futbolista.posición_futbolista,futbolista.altura_futbolista,futbolista.piernahabil_futbolista,futbolista.sueldo_futbolista,futbolista.inicio_contrato,futbolista.fin_contrato FROM futbolista INNER JOIN persona ON futbolista.id_persona=persona.id_persona";
         try{
             con = conectar.getConexion();
             ps = con.prepareStatement(sql);
@@ -32,6 +32,7 @@ public class ControlDatos {
                 datos = new ModeloFutbolista();
                 datos.setNombre(rs.getString("persona.nombre_persona")); 
                 datos.setApellido(rs.getString("persona.apellido_persona")); 
+                datos.setApodo(rs.getString("futbolista.apodo_futbolista"));
                 datos.setPosicion(rs.getString("futbolista.posición_futbolista")); 
                 datos.setAltura(rs.getInt("futbolista.altura_futbolista")); 
                 datos.setPiernahabil_futbolista(rs.getString("futbolista.piernahabil_futbolista")); 
