@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author 
+ * @author 12mat
  */
 public class login extends javax.swing.JFrame {
     Connection con;

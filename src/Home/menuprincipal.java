@@ -6,6 +6,7 @@ package Home;
 
 import Futbolistas.VistaFutbolistas;
 import Instalaciones.VistaInstalaciones;
+import Socios.VistaSocios;
 import javax.swing.JOptionPane;
 
 /**
@@ -35,7 +36,7 @@ public class menuprincipal extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         boton_instalaciones = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        boton_socios = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
@@ -88,13 +89,13 @@ public class menuprincipal extends javax.swing.JFrame {
         });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, -1));
 
-        jButton6.setText("Socios");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        boton_socios.setText("Socios");
+        boton_socios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                boton_sociosActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, 110, -1));
+        getContentPane().add(boton_socios, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, 110, -1));
 
         jButton7.setText("Empleados");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -161,9 +162,11 @@ public class menuprincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    private void boton_sociosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_sociosActionPerformed
+        VistaSocios socios = new VistaSocios();
+        socios.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_boton_sociosActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
@@ -234,11 +237,11 @@ public class menuprincipal extends javax.swing.JFrame {
     private javax.swing.JButton Boton_Futbolistas;
     private javax.swing.JButton Boton_salir;
     private javax.swing.JButton boton_instalaciones;
+    private javax.swing.JButton boton_socios;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;

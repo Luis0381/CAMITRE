@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Webmaster
+ * @author 12mat
  */
 public class VistaInstalaciones extends javax.swing.JFrame {
 

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Futbolistas;
+package Socios;
 
 import Home.menuprincipal;
 import static java.lang.String.valueOf;
@@ -18,16 +18,16 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author 12mat
  */
-public class VistaFutbolistas extends javax.swing.JFrame {
+public class VistaSocios extends javax.swing.JFrame {
         private Conectar conectar;
-        private ModeloFutbolista modelo;
+        private ModeloSocio modelo;
         private Connection con;
     /**
      * Creates new form VistaDatos
      */
-    public VistaFutbolistas() {
+    public VistaSocios() {
                 conectar = new Conectar();
-        modelo = new ModeloFutbolista();
+        modelo = new ModeloSocio();
         initComponents();
     }
 
@@ -60,7 +60,7 @@ public class VistaFutbolistas extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setText("Futbolistas");
+        jLabel1.setText("Socios");
 
         jScrollPane1.setViewportView(tblDatos);
 
@@ -71,7 +71,7 @@ public class VistaFutbolistas extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Apodo:");
+        jLabel2.setText("Tipo:");
 
         jTextField1.setToolTipText("Ingrese el nombre que desea buscar");
         jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -187,33 +187,29 @@ public class VistaFutbolistas extends javax.swing.JFrame {
         
         String buscarNombre = jTextField1.getText().trim();
         String buscarApellido = jTextField2.getText().trim();
-        String buscarApodo = jTextField3.getText().trim();
+        String buscarTipo = jTextField3.getText().trim();
 
 
-        ModeloFutbolista datos;
+        ModeloSocio datos;
         ResultSet rs;
         PreparedStatement ps;
-        ArrayList<ModeloFutbolista> lista = new ArrayList<>();
-        String sql = "select persona.nombre_persona,persona.apellido_persona,futbolista.apodo_futbolista,futbolista.posición_futbolista,futbolista.altura_futbolista,futbolista.piernahabil_futbolista,futbolista.sueldo_futbolista,futbolista.inicio_contrato,futbolista.fin_contrato FROM futbolista INNER JOIN persona ON futbolista.id_persona=persona.id_persona WHERE persona.nombre_persona LIKE ? AND persona.apellido_persona LIKE ? AND futbolista.apodo_futbolista LIKE ?";
+        ArrayList<ModeloSocio> lista = new ArrayList<>();
+        String sql = "select persona.dni_persona,persona.nombre_persona,persona.apellido_persona,socio.tipo_socio,persona.id_persona FROM socio INNER JOIN persona ON socio.id_persona=persona.id_persona WHERE persona.nombre_persona LIKE ? AND persona.apellido_persona LIKE ? AND socio.tipo_socio LIKE ?";
         
         try{
             con = conectar.getConexion();
             ps = con.prepareStatement(sql);
             ps.setString(1, "%" + buscarNombre + "%");
             ps.setString(2, "%" + buscarApellido + "%");
-            ps.setString(3, "%" + buscarApodo + "%");
+            ps.setString(3, "%" + buscarTipo + "%");
             rs = ps.executeQuery();
             while(rs.next()){
-                datos = new ModeloFutbolista();
+                datos = new ModeloSocio();
+                datos.setDni(rs.getInt("persona.dni_persona"));
                 datos.setNombre(rs.getString("persona.nombre_persona")); 
                 datos.setApellido(rs.getString("persona.apellido_persona")); 
-                datos.setApodo(rs.getString("futbolista.apodo_futbolista")); 
-                datos.setPosicion(rs.getString("futbolista.posición_futbolista")); 
-                datos.setAltura(rs.getInt("futbolista.altura_futbolista")); 
-                datos.setPiernahabil_futbolista(rs.getString("futbolista.piernahabil_futbolista")); 
-                datos.setSueldo(rs.getFloat("futbolista.sueldo_futbolista")); 
-                datos.setInicio_contrato(rs.getDate("futbolista.inicio_contrato").toString()); 
-                datos.setFin_contrato(rs.getDate("futbolista.fin_contrato").toString()); 
+                datos.setTipo(rs.getString("socio.tipo_socio"));
+                datos.setId(rs.getInt("persona.id_persona"));
                 lista.add(datos);             
             }            
             rs.close();
@@ -225,26 +221,18 @@ public class VistaFutbolistas extends javax.swing.JFrame {
         
         DefaultTableModel tabla =  new DefaultTableModel();
         String[] fila = new String[45];
+        tabla.addColumn("Dni");
         tabla.addColumn("Nombre");
         tabla.addColumn("Apellido");
-        tabla.addColumn("Apodo");
-        tabla.addColumn("Posicion");
-        tabla.addColumn("Altura");
-        tabla.addColumn("Pierna Habil");
-        tabla.addColumn("Sueldo");
-        tabla.addColumn("Inicio de Contrato");
-        tabla.addColumn("Fin de Contrato");
+        tabla.addColumn("Tipo");
+        tabla.addColumn("Id persona");
         
         for(int f=0; f<lista.size();f++){
-            fila[0] = lista.get(f).getNombre();
-            fila[1] = lista.get(f).getApellido();
-            fila[2] = lista.get(f).getApodo();
-            fila[3] = lista.get(f).getPosicion();
-            fila[4] = valueOf(lista.get(f).getAltura());
-            fila[5] = lista.get(f).getPiernahabil_futbolista();
-            fila[6] = valueOf(lista.get(f).getSueldo());
-            fila[7] = lista.get(f).getInicio_contrato();
-            fila[8] = lista.get(f).getFin_contrato();
+            fila[0] = valueOf(lista.get(f).getDni());
+            fila[1] = lista.get(f).getNombre();
+            fila[2] = lista.get(f).getApellido();
+            fila[3] = lista.get(f).getTipo();
+            fila[4] = valueOf(lista.get(f).getId());
             tabla.addRow(fila);
         }
         tblDatos.setModel(tabla);
@@ -267,14 +255,26 @@ public class VistaFutbolistas extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VistaFutbolistas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaSocios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VistaFutbolistas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaSocios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VistaFutbolistas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaSocios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VistaFutbolistas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaSocios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -283,7 +283,7 @@ public class VistaFutbolistas extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VistaFutbolistas().setVisible(true);
+                new VistaSocios().setVisible(true);
             }
         });
     }
@@ -306,28 +306,20 @@ public class VistaFutbolistas extends javax.swing.JFrame {
         private void llenarTabla() {
         DefaultTableModel tabla =  new DefaultTableModel();
         ControlDatos control = new ControlDatos();
-        ArrayList<ModeloFutbolista> datos;
+        ArrayList<ModeloSocio> datos;
         String[] fila = new String[45];
+        tabla.addColumn("Dni");
         tabla.addColumn("Nombre");
         tabla.addColumn("Apellido");
-        tabla.addColumn("Apodo");
-        tabla.addColumn("Posicion");
-        tabla.addColumn("Altura");
-        tabla.addColumn("Pierna Habil");
-        tabla.addColumn("Sueldo");
-        tabla.addColumn("Inicio de Contrato");
-        tabla.addColumn("Fin de Contrato");
+        tabla.addColumn("Tipo");
+        tabla.addColumn("Id persona");
         datos = control.llenarDatos();         
         for(int f=0; f<datos.size();f++){
-            fila[0] = datos.get(f).getNombre();
-            fila[1] = datos.get(f).getApellido();
-            fila[2] = datos.get(f).getApodo();
-            fila[3] = datos.get(f).getPosicion();
-            fila[4] = valueOf(datos.get(f).getAltura());
-            fila[5] = datos.get(f).getPiernahabil_futbolista();
-            fila[6] = valueOf(datos.get(f).getSueldo());
-            fila[7] = datos.get(f).getInicio_contrato();
-            fila[8] = datos.get(f).getFin_contrato();
+            fila[0] = valueOf(datos.get(f).getDni());
+            fila[1] = datos.get(f).getNombre();
+            fila[2] = datos.get(f).getApellido();
+            fila[3] = datos.get(f).getTipo();
+            fila[4] = valueOf(datos.get(f).getId());
             tabla.addRow(fila);
         }
         tblDatos.setModel(tabla);
