@@ -23,7 +23,7 @@ public class ControlDatos {
         ResultSet rs;
         PreparedStatement ps;
         ArrayList<ModeloMercadotransferencia> lista = new ArrayList<>();
-        String sql = "select persona.dni_persona,persona.nombre_persona,persona.apellido_persona,futbolista.altura_futbolista,futbolista.posición_futbolista, mercado_transferencias.año_mercado,mercado_transferencias.tipo_mercado,movimientos.costo_movimiento,movimientos.tipo_movimiento ,movimientos.calidad_movimiento FROM persona INNER JOIN futbolista ON persona.id_persona=futbolista.id_persona INNER JOIN participa on futbolista.id_persona=participa.id_persona INNER JOIN mercado_transferencias on participa.id_mercado=mercado_transferencias.id_mercado INNER JOIN movimientos on mercado_transferencias.id_mercado=movimientos.id_mercado";
+        String sql = "select persona.dni_persona,persona.nombre_persona,persona.apellido_persona,futbolista.altura_futbolista,futbolista.posición_futbolista, mercado_transferencias.año_mercado,mercado_transferencias.tipo_mercado,movimientos.costo_movimiento,movimientos.tipo_movimiento ,movimientos.calidad_movimiento FROM persona INNER JOIN futbolista ON persona.id_persona=futbolista.id_persona INNER JOIN involucrado ON futbolista.id_persona=involucrado.id_futbolista INNER JOIN movimientos ON involucrado.id_movimiento=movimientos.id_movimiento INNER JOIN mercado_transferencias ON mercado_transferencias.id_mercado=movimientos.id_mercado";
         try{
             con = conectar.getConexion();
             ps = con.prepareStatement(sql);

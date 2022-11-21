@@ -112,7 +112,7 @@ public class VistaMercadotransferencia extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setText("Tipo movimiento");
+        jLabel5.setText("Tipo movimiento:");
 
         jTextField4.setToolTipText("Ingrese el nombre que desea buscar");
         jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -135,7 +135,7 @@ public class VistaMercadotransferencia extends javax.swing.JFrame {
 
         jLabel6.setText("Calidad movimiento:");
 
-        jLabel7.setText("Tipo movimiento:");
+        jLabel7.setText("Tipo mercado:");
 
         jTextField6.setToolTipText("Ingrese el nombre que desea buscar");
         jTextField6.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -254,7 +254,7 @@ public class VistaMercadotransferencia extends javax.swing.JFrame {
         ResultSet rs;
         PreparedStatement ps;
         ArrayList<ModeloMercadotransferencia> lista = new ArrayList<>();
-        String sql = "select persona.dni_persona,persona.nombre_persona,persona.apellido_persona,futbolista.altura_futbolista,futbolista.posición_futbolista, mercado_transferencias.año_mercado,mercado_transferencias.tipo_mercado,movimientos.costo_movimiento,movimientos.tipo_movimiento ,movimientos.calidad_movimiento FROM persona INNER JOIN futbolista ON persona.id_persona=futbolista.id_persona INNER JOIN participa on futbolista.id_persona=participa.id_persona INNER JOIN mercado_transferencias on participa.id_mercado=mercado_transferencias.id_mercado INNER JOIN movimientos on mercado_transferencias.id_mercado=movimientos.id_mercado WHERE persona.nombre_persona LIKE ? AND persona.apellido_persona LIKE ? AND mercado_transferencias.año_mercado LIKE ? AND mercado_transferencias.tipo_mercado LIKE ? AND movimientos.tipo_movimiento LIKE ? AND movimientos.calidad_movimiento LIKE ?";
+        String sql = "select persona.dni_persona,persona.nombre_persona,persona.apellido_persona,futbolista.altura_futbolista,futbolista.posición_futbolista, mercado_transferencias.año_mercado,mercado_transferencias.tipo_mercado,movimientos.costo_movimiento,movimientos.tipo_movimiento ,movimientos.calidad_movimiento FROM persona INNER JOIN futbolista ON persona.id_persona=futbolista.id_persona INNER JOIN involucrado ON futbolista.id_persona=involucrado.id_futbolista INNER JOIN movimientos ON involucrado.id_movimiento=movimientos.id_movimiento INNER JOIN mercado_transferencias ON mercado_transferencias.id_mercado=movimientos.id_mercado WHERE persona.nombre_persona LIKE ? AND persona.apellido_persona LIKE ? AND mercado_transferencias.año_mercado LIKE ? AND mercado_transferencias.tipo_mercado LIKE ? AND movimientos.tipo_movimiento LIKE ? AND movimientos.calidad_movimiento LIKE ?";
          
         try{
             con = conectar.getConexion();

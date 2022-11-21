@@ -9,9 +9,11 @@ import Dirigentes.VistaDirigente;
 import Empleados.VistaEmpleado;
 import Futbolistas.VistaFutbolistas;
 import Instalaciones.VistaInstalaciones;
+import Lesiones.VistaLesiones;
 import Medicos.VistaMedicos;
 import Partidos.VistaPartidos;
 import Socios.VistaSocios;
+import Torneos.VistaTorneos;
 import javax.swing.JOptionPane;
 import mercadotransferencia.VistaMercadotransferencia;
 
@@ -45,8 +47,8 @@ public class menuprincipal extends javax.swing.JFrame {
         boton_socios = new javax.swing.JButton();
         btn_empleado = new javax.swing.JButton();
         btn_medicos = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
+        btn_lesiones = new javax.swing.JButton();
+        btn_torneos = new javax.swing.JButton();
         Boton_salir = new javax.swing.JButton();
         btn_dirigentes = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -121,21 +123,21 @@ public class menuprincipal extends javax.swing.JFrame {
         });
         getContentPane().add(btn_medicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 110, -1));
 
-        jButton9.setText("Lesiones");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        btn_lesiones.setText("Lesiones");
+        btn_lesiones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                btn_lesionesActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, 150, -1));
+        getContentPane().add(btn_lesiones, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, 150, -1));
 
-        jButton10.setText("Torneos");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        btn_torneos.setText("Torneos");
+        btn_torneos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                btn_torneosActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 370, 150, -1));
+        getContentPane().add(btn_torneos, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 370, 150, -1));
 
         Boton_salir.setText("Salir");
         Boton_salir.addActionListener(new java.awt.event.ActionListener() {
@@ -151,7 +153,7 @@ public class menuprincipal extends javax.swing.JFrame {
                 btn_dirigentesActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_dirigentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 410, 140, 20));
+        getContentPane().add(btn_dirigentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 410, 150, 20));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Home/mitre-santiago-del-estero-cancha2.jpg"))); // NOI18N
@@ -210,9 +212,11 @@ public class menuprincipal extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_btn_medicosActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton10ActionPerformed
+    private void btn_torneosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_torneosActionPerformed
+        VistaTorneos torneos = new VistaTorneos();
+        torneos.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_btn_torneosActionPerformed
 
     private void Boton_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_salirActionPerformed
         int opcion = JOptionPane.showOptionDialog(null, "Está seguro que desea salir?", "", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"Sí", "No"}, this);
@@ -228,9 +232,11 @@ public class menuprincipal extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_Boton_FutbolistasActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
+    private void btn_lesionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_lesionesActionPerformed
+        VistaLesiones lesiones = new VistaLesiones();
+        lesiones.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_btn_lesionesActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
@@ -286,11 +292,11 @@ public class menuprincipal extends javax.swing.JFrame {
     private javax.swing.JButton boton_socios;
     private javax.swing.JButton btn_dirigentes;
     private javax.swing.JButton btn_empleado;
+    private javax.swing.JButton btn_lesiones;
     private javax.swing.JButton btn_medicos;
     private javax.swing.JButton btn_partidos;
-    private javax.swing.JButton jButton10;
+    private javax.swing.JButton btn_torneos;
     private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
