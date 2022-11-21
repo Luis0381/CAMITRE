@@ -31,6 +31,7 @@ public class menuprincipal extends javax.swing.JFrame {
     public menuprincipal() {
         initComponents();
         setIconImage(getIconImage());
+        setLocationRelativeTo(null);
     }
     
     //Se establece el icono de la vista
@@ -63,7 +64,6 @@ public class menuprincipal extends javax.swing.JFrame {
         Boton_salir = new javax.swing.JButton();
         btn_dirigentes = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton11 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -226,14 +226,6 @@ public class menuprincipal extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Home/mitre-santiago-del-estero-cancha2b.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 800, 500));
-
-        jButton11.setText("Torneos");
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, 150, -1));
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 160, 140, 80));
 
         pack();
@@ -307,10 +299,6 @@ public class menuprincipal extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_btn_lesionesActionPerformed
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton11ActionPerformed
-
     private void btn_dirigentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_dirigentesActionPerformed
         VistaDirigente dirigentes = new VistaDirigente();
         dirigentes.setVisible(true);
@@ -365,7 +353,6 @@ public class menuprincipal extends javax.swing.JFrame {
     private javax.swing.JButton btn_medicos;
     private javax.swing.JButton btn_partidos;
     private javax.swing.JButton btn_torneos;
-    private javax.swing.JButton jButton11;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

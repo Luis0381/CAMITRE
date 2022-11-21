@@ -33,6 +33,7 @@ public class VistaMedicos extends javax.swing.JFrame {
         modelo = new ModeloMedico();
         initComponents();
         setIconImage(getIconImage());
+        setLocationRelativeTo(null);
     }
     
     //Se establece el icono de la vista

@@ -32,6 +32,7 @@ public class VistaLesiones extends javax.swing.JFrame {
         modelo = new ModeloLesiones();
         initComponents();
         setIconImage(getIconImage());
+        setLocationRelativeTo(null);
     }
     
     //Se establece el icono de la vista

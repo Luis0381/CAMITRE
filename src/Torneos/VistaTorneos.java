@@ -33,6 +33,7 @@ public class VistaTorneos extends javax.swing.JFrame {
         modelo = new ModeloTorneos();
         initComponents();
         setIconImage(getIconImage());
+        setLocationRelativeTo(null);
     }
     
     //Se establece el icono de la vista

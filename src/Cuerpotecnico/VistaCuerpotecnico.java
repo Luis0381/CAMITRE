@@ -5,6 +5,7 @@
 package Cuerpotecnico;
 
 import Home.menuprincipal;
+import com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel;
 import java.awt.Image;
 import java.awt.Toolkit;
 import static java.lang.String.valueOf;
@@ -13,7 +14,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.plaf.metal.MetalLookAndFeel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -32,6 +38,7 @@ public class VistaCuerpotecnico extends javax.swing.JFrame {
         modelo = new ModeloCuerpotecnico();
         initComponents();
         setIconImage(getIconImage());
+        setLocationRelativeTo(null);
     }
     
     //Se establece el icono de la vista
@@ -87,6 +94,11 @@ public class VistaCuerpotecnico extends javax.swing.JFrame {
         jLabel2.setText("Cargo:");
 
         jTextField1.setToolTipText("Ingrese el nombre que desea buscar");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
         jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextField1KeyPressed(evt);
@@ -254,10 +266,15 @@ public class VistaCuerpotecnico extends javax.swing.JFrame {
         tblDatos.setModel(tabla);
     }//GEN-LAST:event_boton_buscarActionPerformed
 
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -347,6 +364,7 @@ public class VistaCuerpotecnico extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                
                 new VistaCuerpotecnico().setVisible(true);
             }
         });
@@ -390,4 +408,5 @@ public class VistaCuerpotecnico extends javax.swing.JFrame {
         }
         tblDatos.setModel(tabla);
     }
+      
 }

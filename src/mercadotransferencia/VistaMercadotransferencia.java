@@ -33,6 +33,7 @@ public class VistaMercadotransferencia extends javax.swing.JFrame {
         modelo = new ModeloMercadotransferencia();
         initComponents();
         setIconImage(getIconImage());
+        setLocationRelativeTo(null);
     }
     
     //Se establece el icono de la vista

@@ -32,6 +32,7 @@ public class VistaDirigente extends javax.swing.JFrame {
         modelo = new ModeloDirigente();
         initComponents();
         setIconImage(getIconImage());
+        setLocationRelativeTo(null);
     }
     
     //Se establece el icono de la vista
