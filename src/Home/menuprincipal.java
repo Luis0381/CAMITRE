@@ -6,6 +6,7 @@ package Home;
 
 import Futbolistas.VistaFutbolistas;
 import Instalaciones.VistaInstalaciones;
+import Medicos.VistaMedicos;
 import Partidos.VistaPartidos;
 import Socios.VistaSocios;
 import javax.swing.JOptionPane;
@@ -39,7 +40,7 @@ public class menuprincipal extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         boton_socios = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        boton_medicos = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         Boton_salir = new javax.swing.JButton();
@@ -106,13 +107,13 @@ public class menuprincipal extends javax.swing.JFrame {
         });
         getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 110, -1));
 
-        jButton8.setText("Médicos");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        boton_medicos.setText("Médicos");
+        boton_medicos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                boton_medicosActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 110, -1));
+        getContentPane().add(boton_medicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 110, -1));
 
         jButton9.setText("Lesiones");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
@@ -175,9 +176,11 @@ public class menuprincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    private void boton_medicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_medicosActionPerformed
+        VistaMedicos medicos = new VistaMedicos();
+        medicos.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_boton_medicosActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
@@ -240,13 +243,13 @@ public class menuprincipal extends javax.swing.JFrame {
     private javax.swing.JButton Boton_Futbolistas;
     private javax.swing.JButton Boton_salir;
     private javax.swing.JButton boton_instalaciones;
+    private javax.swing.JButton boton_medicos;
     private javax.swing.JButton boton_socios;
     private javax.swing.JButton btn_partidos;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
