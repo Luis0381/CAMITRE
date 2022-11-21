@@ -48,116 +48,173 @@ public class menuprincipal extends javax.swing.JFrame {
         btn_empleado = new javax.swing.JButton();
         btn_medicos = new javax.swing.JButton();
         btn_lesiones = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         btn_torneos = new javax.swing.JButton();
         Boton_salir = new javax.swing.JButton();
         btn_dirigentes = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButton11 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(300, 150));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btn_partidos.setBackground(new java.awt.Color(0, 0, 0));
+        btn_partidos.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        btn_partidos.setForeground(new java.awt.Color(255, 153, 0));
         btn_partidos.setText("Partidos");
         btn_partidos.setToolTipText("");
+        btn_partidos.setBorder(null);
         btn_partidos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_partidosActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_partidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 240, 150, 20));
+        getContentPane().add(btn_partidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 130, 50));
 
+        Boton_Futbolistas.setBackground(new java.awt.Color(0, 0, 0));
+        Boton_Futbolistas.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        Boton_Futbolistas.setForeground(new java.awt.Color(255, 153, 0));
         Boton_Futbolistas.setText("Futbolistas");
+        Boton_Futbolistas.setBorder(null);
         Boton_Futbolistas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Boton_FutbolistasActionPerformed(evt);
             }
         });
-        getContentPane().add(Boton_Futbolistas, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 110, -1));
+        getContentPane().add(Boton_Futbolistas, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 130, 50));
 
+        boton_mercadotransferencias.setBackground(new java.awt.Color(0, 0, 0));
+        boton_mercadotransferencias.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        boton_mercadotransferencias.setForeground(new java.awt.Color(255, 153, 0));
         boton_mercadotransferencias.setText("Mercado Transferencias");
+        boton_mercadotransferencias.setBorder(null);
         boton_mercadotransferencias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_mercadotransferenciasActionPerformed(evt);
             }
         });
-        getContentPane().add(boton_mercadotransferencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, -1, -1));
+        getContentPane().add(boton_mercadotransferencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, 210, 60));
 
+        boton_instalaciones.setBackground(new java.awt.Color(0, 0, 0));
+        boton_instalaciones.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        boton_instalaciones.setForeground(new java.awt.Color(255, 153, 0));
         boton_instalaciones.setText("Instalaciones");
+        boton_instalaciones.setBorder(null);
         boton_instalaciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_instalacionesActionPerformed(evt);
             }
         });
-        getContentPane().add(boton_instalaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 150, -1));
+        getContentPane().add(boton_instalaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 160, 130, 50));
 
+        boton_cuerpotecnico.setBackground(new java.awt.Color(0, 0, 0));
+        boton_cuerpotecnico.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        boton_cuerpotecnico.setForeground(new java.awt.Color(255, 153, 0));
         boton_cuerpotecnico.setText("Cuerpo Técnico");
+        boton_cuerpotecnico.setBorder(null);
         boton_cuerpotecnico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_cuerpotecnicoActionPerformed(evt);
             }
         });
-        getContentPane().add(boton_cuerpotecnico, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, -1));
+        getContentPane().add(boton_cuerpotecnico, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 130, 50));
 
+        boton_socios.setBackground(new java.awt.Color(0, 0, 0));
+        boton_socios.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        boton_socios.setForeground(new java.awt.Color(255, 153, 0));
         boton_socios.setText("Socios");
+        boton_socios.setBorder(null);
         boton_socios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_sociosActionPerformed(evt);
             }
         });
-        getContentPane().add(boton_socios, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, 110, -1));
+        getContentPane().add(boton_socios, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 160, 130, 50));
 
+        btn_empleado.setBackground(new java.awt.Color(0, 0, 0));
+        btn_empleado.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        btn_empleado.setForeground(new java.awt.Color(255, 153, 0));
         btn_empleado.setText("Empleados");
+        btn_empleado.setBorder(null);
         btn_empleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_empleadoActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_empleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 110, -1));
+        getContentPane().add(btn_empleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 220, 130, 50));
 
+        btn_medicos.setBackground(new java.awt.Color(0, 0, 0));
+        btn_medicos.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        btn_medicos.setForeground(new java.awt.Color(255, 153, 0));
         btn_medicos.setText("Médicos");
+        btn_medicos.setBorder(null);
         btn_medicos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_medicosActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_medicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 110, -1));
+        getContentPane().add(btn_medicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, 130, 50));
 
+        btn_lesiones.setBackground(new java.awt.Color(0, 0, 0));
+        btn_lesiones.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        btn_lesiones.setForeground(new java.awt.Color(255, 153, 0));
         btn_lesiones.setText("Lesiones");
+        btn_lesiones.setBorder(null);
         btn_lesiones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_lesionesActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_lesiones, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, 150, -1));
+        getContentPane().add(btn_lesiones, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 130, 50));
 
+        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel2.setFont(new java.awt.Font("Arial Black", 1, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 153, 0));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Club Atletico Mitre (SdE)");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 800, 90));
+
+        btn_torneos.setBackground(new java.awt.Color(0, 0, 0));
+        btn_torneos.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        btn_torneos.setForeground(new java.awt.Color(255, 153, 0));
         btn_torneos.setText("Torneos");
+        btn_torneos.setBorder(null);
         btn_torneos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_torneosActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_torneos, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 370, 150, -1));
+        getContentPane().add(btn_torneos, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 130, 50));
 
+        Boton_salir.setBackground(new java.awt.Color(0, 0, 0));
+        Boton_salir.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        Boton_salir.setForeground(new java.awt.Color(255, 153, 0));
         Boton_salir.setText("Salir");
+        Boton_salir.setBorder(null);
         Boton_salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Boton_salirActionPerformed(evt);
             }
         });
-        getContentPane().add(Boton_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 460, 90, -1));
+        getContentPane().add(Boton_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 360, 170, 60));
 
+        btn_dirigentes.setBackground(new java.awt.Color(0, 0, 0));
+        btn_dirigentes.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        btn_dirigentes.setForeground(new java.awt.Color(255, 153, 0));
         btn_dirigentes.setText("Dirigentes");
+        btn_dirigentes.setBorder(null);
         btn_dirigentes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_dirigentesActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_dirigentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 410, 150, 20));
+        getContentPane().add(btn_dirigentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 220, 130, 50));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Home/mitre-santiago-del-estero-cancha2.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -10, 860, 520));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Home/mitre-santiago-del-estero-cancha2b.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 800, 510));
 
         jButton11.setText("Torneos");
         jButton11.addActionListener(new java.awt.event.ActionListener() {
@@ -166,6 +223,7 @@ public class menuprincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, 150, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 160, 140, 80));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -298,5 +356,7 @@ public class menuprincipal extends javax.swing.JFrame {
     private javax.swing.JButton btn_torneos;
     private javax.swing.JButton jButton11;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
