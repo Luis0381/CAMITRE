@@ -80,7 +80,7 @@ public class VistaInstalaciones extends javax.swing.JFrame {
 
         jLabel4.setText("Tipo:");
 
-        jTextField1.setToolTipText("Ingrese el nombre que desea buscar");
+        jTextField1.setToolTipText("Ingrese el tipo de instalacion que desea buscar");
         jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextField1KeyPressed(evt);

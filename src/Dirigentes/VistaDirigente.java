@@ -98,14 +98,19 @@ public class VistaDirigente extends javax.swing.JFrame {
 
         jLabel4.setText("Apellido: ");
 
-        jTextField2.setToolTipText("Ingrese el nombre que desea buscar");
+        jTextField2.setToolTipText("Ingrese el apellido que desea buscar");
         jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextField2KeyPressed(evt);
             }
         });
 
-        jTextField3.setToolTipText("Ingrese el nombre que desea buscar");
+        jTextField3.setToolTipText("Ingrese el tipo de cuenta que desea buscar");
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
+            }
+        });
         jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextField3KeyPressed(evt);
@@ -119,7 +124,7 @@ public class VistaDirigente extends javax.swing.JFrame {
             }
         });
 
-        jTextField4.setToolTipText("Ingrese el nombre que desea buscar");
+        jTextField4.setToolTipText("Ingrese el cargo que desea buscar");
         jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextField4KeyPressed(evt);
@@ -285,6 +290,10 @@ public class VistaDirigente extends javax.swing.JFrame {
     private void jTextField4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4KeyPressed
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
 
     /**
      * @param args the command line arguments

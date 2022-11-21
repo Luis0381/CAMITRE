@@ -143,7 +143,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txt_formato">
       <Properties>
-        <Property name="toolTipText" type="java.lang.String" value="Ingrese el nombre que desea buscar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Ingrese el formato de torneo que desea buscar"/>
       </Properties>
     </Component>
   </SubComponents>

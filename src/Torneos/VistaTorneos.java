@@ -98,7 +98,7 @@ public class VistaTorneos extends javax.swing.JFrame {
             }
         });
 
-        txt_formato.setToolTipText("Ingrese el nombre que desea buscar");
+        txt_formato.setToolTipText("Ingrese el formato de torneo que desea buscar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

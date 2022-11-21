@@ -109,14 +109,14 @@ public class VistaCuerpotecnico extends javax.swing.JFrame {
 
         jLabel4.setText("Apellido: ");
 
-        jTextField2.setToolTipText("Ingrese el nombre que desea buscar");
+        jTextField2.setToolTipText("Ingrese el apellido que desea buscar");
         jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextField2KeyPressed(evt);
             }
         });
 
-        jTextField3.setToolTipText("Ingrese el nombre que desea buscar");
+        jTextField3.setToolTipText("Ingrese el cargo que desea buscar");
         jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextField3KeyPressed(evt);

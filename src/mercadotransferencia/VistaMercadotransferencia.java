@@ -103,14 +103,14 @@ public class VistaMercadotransferencia extends javax.swing.JFrame {
 
         jLabel4.setText("Apellido: ");
 
-        jTextField2.setToolTipText("Ingrese el nombre que desea buscar");
+        jTextField2.setToolTipText("Ingrese el apellido que desea buscar");
         jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextField2KeyPressed(evt);
             }
         });
 
-        jTextField3.setToolTipText("Ingrese el nombre que desea buscar");
+        jTextField3.setToolTipText("Ingrese el año de mercado que desea buscar");
         jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextField3KeyPressed(evt);
@@ -126,14 +126,14 @@ public class VistaMercadotransferencia extends javax.swing.JFrame {
 
         jLabel5.setText("Tipo movimiento:");
 
-        jTextField4.setToolTipText("Ingrese el nombre que desea buscar");
+        jTextField4.setToolTipText("Ingrese el tipo de mercado que desea buscar");
         jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextField4KeyPressed(evt);
             }
         });
 
-        jTextField5.setToolTipText("Ingrese el nombre que desea buscar");
+        jTextField5.setToolTipText("Ingrese el tipo de mercado que desea buscar");
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField5ActionPerformed(evt);
@@ -149,7 +149,7 @@ public class VistaMercadotransferencia extends javax.swing.JFrame {
 
         jLabel7.setText("Tipo mercado:");
 
-        jTextField6.setToolTipText("Ingrese el nombre que desea buscar");
+        jTextField6.setToolTipText("Ingrese la calidad de movimiento que desea buscar");
         jTextField6.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextField6KeyPressed(evt);

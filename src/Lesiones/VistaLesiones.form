@@ -155,12 +155,12 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txt_apellido">
       <Properties>
-        <Property name="toolTipText" type="java.lang.String" value="Ingrese el nombre que desea buscar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Ingrese el apellido que desea buscar"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txt_tipo">
       <Properties>
-        <Property name="toolTipText" type="java.lang.String" value="Ingrese el nombre que desea buscar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Ingrese el tipo de lesion que desea buscar"/>
       </Properties>
     </Component>
   </SubComponents>

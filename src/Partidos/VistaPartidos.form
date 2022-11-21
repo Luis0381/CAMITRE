@@ -165,12 +165,12 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txt_golesm">
       <Properties>
-        <Property name="toolTipText" type="java.lang.String" value="Ingrese el nombre que desea buscar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Goles Marcados"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txt_torneo">
       <Properties>
-        <Property name="toolTipText" type="java.lang.String" value="Ingrese el nombre que desea buscar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Ingrese el nombre del torneo que desea buscar"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="boton_buscar">
@@ -206,12 +206,12 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txt_rival">
       <Properties>
-        <Property name="toolTipText" type="java.lang.String" value="Ingrese el nombre que desea buscar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Ingrese el nombre del rival que desea buscar"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txt_condicion">
       <Properties>
-        <Property name="toolTipText" type="java.lang.String" value="Ingrese el nombre que desea buscar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Ingrese condici&#xf3;n de visitante o local "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">
@@ -226,17 +226,17 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txt_golesr">
       <Properties>
-        <Property name="toolTipText" type="java.lang.String" value="Ingrese el nombre que desea buscar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Goles recibidos"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txt_instancia">
       <Properties>
-        <Property name="toolTipText" type="java.lang.String" value="Ingrese el nombre que desea buscar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Ingrese la instancia de partido que desea buscar"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txt_estadio">
       <Properties>
-        <Property name="toolTipText" type="java.lang.String" value="Ingrese el nombre que desea buscar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Ingrese el nombre del estadio que desea buscar"/>
       </Properties>
     </Component>
   </SubComponents>

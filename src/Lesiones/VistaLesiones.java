@@ -101,9 +101,9 @@ public class VistaLesiones extends javax.swing.JFrame {
 
         jLabel7.setText("Tipo:");
 
-        txt_apellido.setToolTipText("Ingrese el nombre que desea buscar");
+        txt_apellido.setToolTipText("Ingrese el apellido que desea buscar");
 
-        txt_tipo.setToolTipText("Ingrese el nombre que desea buscar");
+        txt_tipo.setToolTipText("Ingrese el tipo de lesion que desea buscar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

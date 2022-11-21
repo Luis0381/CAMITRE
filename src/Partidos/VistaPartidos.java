@@ -93,9 +93,9 @@ public class VistaPartidos extends javax.swing.JFrame {
 
         jLabel4.setText("Rival:");
 
-        txt_golesm.setToolTipText("Ingrese el nombre que desea buscar");
+        txt_golesm.setToolTipText("Goles Marcados");
 
-        txt_torneo.setToolTipText("Ingrese el nombre que desea buscar");
+        txt_torneo.setToolTipText("Ingrese el nombre del torneo que desea buscar");
 
         boton_buscar.setText("Buscar");
         boton_buscar.addActionListener(new java.awt.event.ActionListener() {
@@ -117,19 +117,19 @@ public class VistaPartidos extends javax.swing.JFrame {
 
         jLabel8.setText("Goles Marcados:");
 
-        txt_rival.setToolTipText("Ingrese el nombre que desea buscar");
+        txt_rival.setToolTipText("Ingrese el nombre del rival que desea buscar");
 
-        txt_condicion.setToolTipText("Ingrese el nombre que desea buscar");
+        txt_condicion.setToolTipText("Ingrese condición de visitante o local ");
 
         jLabel9.setText("Estadio:");
 
         jLabel10.setText("Instancia:");
 
-        txt_golesr.setToolTipText("Ingrese el nombre que desea buscar");
+        txt_golesr.setToolTipText("Goles recibidos");
 
-        txt_instancia.setToolTipText("Ingrese el nombre que desea buscar");
+        txt_instancia.setToolTipText("Ingrese la instancia de partido que desea buscar");
 
-        txt_estadio.setToolTipText("Ingrese el nombre que desea buscar");
+        txt_estadio.setToolTipText("Ingrese el nombre del estadio que desea buscar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

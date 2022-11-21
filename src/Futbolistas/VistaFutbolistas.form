@@ -143,7 +143,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField2">
       <Properties>
-        <Property name="toolTipText" type="java.lang.String" value="Ingrese el nombre que desea buscar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Ingrese el apellido que desea buscar"/>
       </Properties>
       <Events>
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField2KeyPressed"/>
@@ -151,7 +151,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField3">
       <Properties>
-        <Property name="toolTipText" type="java.lang.String" value="Ingrese el nombre que desea buscar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Ingrese el apodo que desea buscar"/>
       </Properties>
       <Events>
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField3KeyPressed"/>
