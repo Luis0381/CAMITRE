@@ -6,6 +6,8 @@ package Medicos;
 
 
 import Home.menuprincipal;
+import java.awt.Image;
+import java.awt.Toolkit;
 import static java.lang.String.valueOf;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -27,9 +29,17 @@ public class VistaMedicos extends javax.swing.JFrame {
      * Creates new form VistaDatos
      */
     public VistaMedicos() {
-                conectar = new Conectar();
+        conectar = new Conectar();
         modelo = new ModeloMedico();
         initComponents();
+        setIconImage(getIconImage());
+    }
+    
+    //Se establece el icono de la vista
+    @Override
+    public Image getIconImage(){
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Imagenicono/Mitre_escudo.png"));
+        return retValue;
     }
 
     /**
@@ -54,6 +64,7 @@ public class VistaMedicos extends javax.swing.JFrame {
         boton_buscar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Club Atlético Mitre (Santiago del Estero)");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);

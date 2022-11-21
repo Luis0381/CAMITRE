@@ -6,6 +6,8 @@ package Partidos;
 
 import Home.menuprincipal;
 import Partidos.ModeloPartidos;
+import java.awt.Image;
+import java.awt.Toolkit;
 import static java.lang.String.valueOf;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -31,8 +33,16 @@ public class VistaPartidos extends javax.swing.JFrame {
         conectar = new Partidos.Conectar();
         modelo = new ModeloPartidos();
         initComponents();
+        setIconImage(getIconImage());
     }
-
+    
+    //Se establece el icono de la vista
+    @Override
+    public Image getIconImage(){
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Imagenicono/Mitre_escudo.png"));
+        return retValue;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -66,6 +76,7 @@ public class VistaPartidos extends javax.swing.JFrame {
         jLabel6.setText("Condicion:");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Club Atlético Mitre (Santiago del Estero)");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);

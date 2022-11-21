@@ -6,6 +6,8 @@ package Instalaciones;
 
 import Futbolistas.ModeloFutbolista;
 import Home.menuprincipal;
+import java.awt.Image;
+import java.awt.Toolkit;
 import static java.lang.String.valueOf;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -28,9 +30,17 @@ public class VistaInstalaciones extends javax.swing.JFrame {
      * Creates new form VistaDatos
      */
     public VistaInstalaciones() {
-                        conectar = new Futbolistas.Conectar();
+        conectar = new Futbolistas.Conectar();
         modelo = new ModeloFutbolista();
         initComponents();
+        setIconImage(getIconImage());
+    }
+    
+    //Se establece el icono de la vista
+    @Override
+    public Image getIconImage(){
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Imagenicono/Mitre_escudo.png"));
+        return retValue;
     }
 
     /**
@@ -53,6 +63,7 @@ public class VistaInstalaciones extends javax.swing.JFrame {
         boton_volver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Club Atlético Mitre (Santiago del Estero)");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);

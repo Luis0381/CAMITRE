@@ -5,6 +5,8 @@
 package Lesiones;
 
 import Home.menuprincipal;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -29,6 +31,14 @@ public class VistaLesiones extends javax.swing.JFrame {
         conectar = new Lesiones.Conectar();
         modelo = new ModeloLesiones();
         initComponents();
+        setIconImage(getIconImage());
+    }
+    
+    //Se establece el icono de la vista
+    @Override
+    public Image getIconImage(){
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Imagenicono/Mitre_escudo.png"));
+        return retValue;
     }
 
     /**
@@ -56,6 +66,7 @@ public class VistaLesiones extends javax.swing.JFrame {
         jLabel6.setText("Condicion:");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Club Atlético Mitre (Santiago del Estero)");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);

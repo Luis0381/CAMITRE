@@ -6,6 +6,7 @@
 package Home;
 
 import java.awt.Dimension;
+import java.awt.Image;
 import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -29,6 +30,14 @@ public class login extends javax.swing.JFrame {
         Toolkit tk = getToolkit();
         Dimension size = tk.getScreenSize();
         setLocation(size.width/2 - getWidth()/2,size.height/2 - getHeight()/2);
+        setIconImage(getIconImage());
+    }
+    
+    //Se establece el icono de la vista
+    @Override
+    public Image getIconImage(){
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Imagenicono/Mitre_escudo.png"));
+        return retValue;
     }
 
     /**
@@ -42,8 +51,8 @@ public class login extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         title = new javax.swing.JLabel();
-        password = new javax.swing.JLabel();
         username = new javax.swing.JLabel();
+        password = new javax.swing.JLabel();
         username_tf = new javax.swing.JTextField();
         password_tf = new javax.swing.JPasswordField();
         boton_ingresar = new javax.swing.JButton();
@@ -69,15 +78,16 @@ public class login extends javax.swing.JFrame {
         title.setMinimumSize(new java.awt.Dimension(300, 25));
         title.setPreferredSize(new java.awt.Dimension(300, 25));
 
-        password.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        password.setForeground(new java.awt.Color(255, 153, 0));
-        password.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        password.setText("Contraseña:");
-
+        username.setBackground(new java.awt.Color(0, 0, 0));
         username.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         username.setForeground(new java.awt.Color(255, 153, 0));
         username.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         username.setText("Usuario:");
+
+        password.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        password.setForeground(new java.awt.Color(255, 153, 0));
+        password.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        password.setText("Contraseña:");
 
         username_tf.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         username_tf.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -94,6 +104,8 @@ public class login extends javax.swing.JFrame {
             }
         });
 
+        boton_ingresar.setBackground(new java.awt.Color(0, 0, 0));
+        boton_ingresar.setForeground(new java.awt.Color(255, 153, 0));
         boton_ingresar.setText("Ingresar");
         boton_ingresar.setBorder(null);
         boton_ingresar.addActionListener(new java.awt.event.ActionListener() {
@@ -102,6 +114,8 @@ public class login extends javax.swing.JFrame {
             }
         });
 
+        boton_restablecer.setBackground(new java.awt.Color(0, 0, 0));
+        boton_restablecer.setForeground(new java.awt.Color(255, 153, 0));
         boton_restablecer.setText("Restablecer");
         boton_restablecer.setBorder(null);
         boton_restablecer.addActionListener(new java.awt.event.ActionListener() {

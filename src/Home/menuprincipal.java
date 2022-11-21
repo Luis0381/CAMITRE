@@ -14,6 +14,8 @@ import Medicos.VistaMedicos;
 import Partidos.VistaPartidos;
 import Socios.VistaSocios;
 import Torneos.VistaTorneos;
+import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 import mercadotransferencia.VistaMercadotransferencia;
 
@@ -28,6 +30,14 @@ public class menuprincipal extends javax.swing.JFrame {
      */
     public menuprincipal() {
         initComponents();
+        setIconImage(getIconImage());
+    }
+    
+    //Se establece el icono de la vista
+    @Override
+    public Image getIconImage(){
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Imagenicono/Mitre_escudo.png"));
+        return retValue;
     }
 
     /**
@@ -57,6 +67,7 @@ public class menuprincipal extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Club Atlético Mitre (Santiago del Estero)");
         setLocation(new java.awt.Point(300, 150));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -214,7 +225,7 @@ public class menuprincipal extends javax.swing.JFrame {
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Home/mitre-santiago-del-estero-cancha2b.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 800, 510));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 800, 500));
 
         jButton11.setText("Torneos");
         jButton11.addActionListener(new java.awt.event.ActionListener() {
