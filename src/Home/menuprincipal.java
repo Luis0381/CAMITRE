@@ -4,6 +4,7 @@
  */
 package Home;
 
+import Cuerpotecnico.VistaCuerpotecnico;
 import Dirigentes.VistaDirigente;
 import Empleados.VistaEmpleado;
 import Futbolistas.VistaFutbolistas;
@@ -39,7 +40,7 @@ public class menuprincipal extends javax.swing.JFrame {
         Boton_Futbolistas = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         boton_instalaciones = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        boton_cuerpotecnico = new javax.swing.JButton();
         boton_socios = new javax.swing.JButton();
         btn_empleado = new javax.swing.JButton();
         btn_medicos = new javax.swing.JButton();
@@ -87,13 +88,13 @@ public class menuprincipal extends javax.swing.JFrame {
         });
         getContentPane().add(boton_instalaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 150, -1));
 
-        jButton5.setText("Cuerpo Técnico");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        boton_cuerpotecnico.setText("Cuerpo Técnico");
+        boton_cuerpotecnico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                boton_cuerpotecnicoActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, -1));
+        getContentPane().add(boton_cuerpotecnico, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, -1));
 
         boton_socios.setText("Socios");
         boton_socios.addActionListener(new java.awt.event.ActionListener() {
@@ -182,9 +183,11 @@ public class menuprincipal extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_boton_instalacionesActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void boton_cuerpotecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_cuerpotecnicoActionPerformed
+        VistaCuerpotecnico cuerpotecnico = new VistaCuerpotecnico();
+        cuerpotecnico.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_boton_cuerpotecnicoActionPerformed
 
     private void boton_sociosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_sociosActionPerformed
         VistaSocios socios = new VistaSocios();
@@ -274,6 +277,7 @@ public class menuprincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Boton_Futbolistas;
     private javax.swing.JButton Boton_salir;
+    private javax.swing.JButton boton_cuerpotecnico;
     private javax.swing.JButton boton_instalaciones;
     private javax.swing.JButton boton_socios;
     private javax.swing.JButton btn_dirigentes;
@@ -283,7 +287,6 @@ public class menuprincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
