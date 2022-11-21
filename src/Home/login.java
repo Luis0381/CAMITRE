@@ -46,8 +46,8 @@ public class login extends javax.swing.JFrame {
         username = new javax.swing.JLabel();
         username_tf = new javax.swing.JTextField();
         password_tf = new javax.swing.JPasswordField();
-        sign_in_btn = new javax.swing.JButton();
-        reset_btn = new javax.swing.JButton();
+        boton_ingresar = new javax.swing.JButton();
+        boton_restablecer = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -92,19 +92,19 @@ public class login extends javax.swing.JFrame {
             }
         });
 
-        sign_in_btn.setText("Ingresar");
-        sign_in_btn.setBorder(null);
-        sign_in_btn.addActionListener(new java.awt.event.ActionListener() {
+        boton_ingresar.setText("Ingresar");
+        boton_ingresar.setBorder(null);
+        boton_ingresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sign_in_btnActionPerformed(evt);
+                boton_ingresarActionPerformed(evt);
             }
         });
 
-        reset_btn.setText("Restablecer");
-        reset_btn.setBorder(null);
-        reset_btn.addActionListener(new java.awt.event.ActionListener() {
+        boton_restablecer.setText("Restablecer");
+        boton_restablecer.setBorder(null);
+        boton_restablecer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                reset_btnActionPerformed(evt);
+                boton_restablecerActionPerformed(evt);
             }
         });
 
@@ -116,9 +116,9 @@ public class login extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(sign_in_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(boton_ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(21, 21, 21)
-                        .addComponent(reset_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(boton_restablecer, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -149,8 +149,8 @@ public class login extends javax.swing.JFrame {
                             .addComponent(password_tf, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(sign_in_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(reset_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(boton_ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(boton_restablecer, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(79, 79, 79)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -168,13 +168,13 @@ public class login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void reset_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reset_btnActionPerformed
+    private void boton_restablecerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_restablecerActionPerformed
         // TODO add your handling code here:
         username_tf.setText("");
         password_tf.setText("");
-    }//GEN-LAST:event_reset_btnActionPerformed
+    }//GEN-LAST:event_boton_restablecerActionPerformed
 
-    private void sign_in_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sign_in_btnActionPerformed
+    private void boton_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_ingresarActionPerformed
         // TODO add your handling code here:
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -200,7 +200,7 @@ public class login extends javax.swing.JFrame {
         catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
         }
-    }//GEN-LAST:event_sign_in_btnActionPerformed
+    }//GEN-LAST:event_boton_ingresarActionPerformed
 
     private void password_tfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_password_tfActionPerformed
         // TODO add your handling code here:
@@ -243,12 +243,12 @@ public class login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton boton_ingresar;
+    private javax.swing.JButton boton_restablecer;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel password;
     private javax.swing.JPasswordField password_tf;
-    private javax.swing.JButton reset_btn;
-    private javax.swing.JButton sign_in_btn;
     private javax.swing.JLabel title;
     private javax.swing.JLabel username;
     private javax.swing.JTextField username_tf;

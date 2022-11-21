@@ -45,9 +45,9 @@
                   <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="sign_in_btn" min="-2" pref="80" max="-2" attributes="0"/>
+                          <Component id="boton_ingresar" min="-2" pref="80" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                          <Component id="reset_btn" min="-2" pref="80" max="-2" attributes="0"/>
+                          <Component id="boton_restablecer" min="-2" pref="80" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
@@ -89,8 +89,8 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="sign_in_btn" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="reset_btn" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="boton_ingresar" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="boton_restablecer" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -184,7 +184,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="password_tfActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="sign_in_btn">
+        <Component class="javax.swing.JButton" name="boton_ingresar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ingresar"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -192,10 +192,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sign_in_btnActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boton_ingresarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="reset_btn">
+        <Component class="javax.swing.JButton" name="boton_restablecer">
           <Properties>
             <Property name="text" type="java.lang.String" value="Restablecer"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -203,7 +203,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="reset_btnActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boton_restablecerActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
