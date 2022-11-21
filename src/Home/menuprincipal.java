@@ -13,6 +13,7 @@ import Medicos.VistaMedicos;
 import Partidos.VistaPartidos;
 import Socios.VistaSocios;
 import javax.swing.JOptionPane;
+import mercadotransferencia.VistaMercadotransferencia;
 
 /**
  *
@@ -38,7 +39,7 @@ public class menuprincipal extends javax.swing.JFrame {
 
         btn_partidos = new javax.swing.JButton();
         Boton_Futbolistas = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        boton_mercadotransferencias = new javax.swing.JButton();
         boton_instalaciones = new javax.swing.JButton();
         boton_cuerpotecnico = new javax.swing.JButton();
         boton_socios = new javax.swing.JButton();
@@ -72,13 +73,13 @@ public class menuprincipal extends javax.swing.JFrame {
         });
         getContentPane().add(Boton_Futbolistas, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 110, -1));
 
-        jButton3.setText("Mercado Transferencias");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        boton_mercadotransferencias.setText("Mercado Transferencias");
+        boton_mercadotransferencias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                boton_mercadotransferenciasActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, -1, -1));
+        getContentPane().add(boton_mercadotransferencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, -1, -1));
 
         boton_instalaciones.setText("Instalaciones");
         boton_instalaciones.addActionListener(new java.awt.event.ActionListener() {
@@ -173,9 +174,11 @@ public class menuprincipal extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_btn_partidosActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void boton_mercadotransferenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_mercadotransferenciasActionPerformed
+        VistaMercadotransferencia mercado = new VistaMercadotransferencia();
+        mercado.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_boton_mercadotransferenciasActionPerformed
 
     private void boton_instalacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_instalacionesActionPerformed
         VistaInstalaciones instalaciones = new VistaInstalaciones();
@@ -279,6 +282,7 @@ public class menuprincipal extends javax.swing.JFrame {
     private javax.swing.JButton Boton_salir;
     private javax.swing.JButton boton_cuerpotecnico;
     private javax.swing.JButton boton_instalaciones;
+    private javax.swing.JButton boton_mercadotransferencias;
     private javax.swing.JButton boton_socios;
     private javax.swing.JButton btn_dirigentes;
     private javax.swing.JButton btn_empleado;
@@ -286,7 +290,6 @@ public class menuprincipal extends javax.swing.JFrame {
     private javax.swing.JButton btn_partidos;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
