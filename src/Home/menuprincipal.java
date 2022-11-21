@@ -5,6 +5,7 @@
 package Home;
 
 import Futbolistas.VistaDatos;
+import Instalaciones.VistaInstalaciones;
 import javax.swing.JOptionPane;
 
 /**
@@ -32,7 +33,7 @@ public class menuprincipal extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         Boton_Futbolistas = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        boton_instalaciones = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
@@ -71,13 +72,13 @@ public class menuprincipal extends javax.swing.JFrame {
         });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, -1, -1));
 
-        jButton4.setText("Instalaciones");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        boton_instalaciones.setText("Instalaciones");
+        boton_instalaciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                boton_instalacionesActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 150, -1));
+        getContentPane().add(boton_instalaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 150, -1));
 
         jButton5.setText("Cuerpo Técnico");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -150,9 +151,11 @@ public class menuprincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void boton_instalacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_instalacionesActionPerformed
+        VistaInstalaciones instalaciones = new VistaInstalaciones();
+        instalaciones.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_boton_instalacionesActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
@@ -230,10 +233,10 @@ public class menuprincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Boton_Futbolistas;
     private javax.swing.JButton Boton_salir;
+    private javax.swing.JButton boton_instalaciones;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
