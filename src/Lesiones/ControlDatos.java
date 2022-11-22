@@ -22,7 +22,7 @@ public class ControlDatos {
         ResultSet rs;
         PreparedStatement ps;
         ArrayList<ModeloLesiones> lista = new ArrayList<>();
-        String sql = "select persona.nombre_persona,persona.apellido_persona,lesion.tipo_lesion,trata.inicio_tratamiento,trata.fin_tratamiento FROM persona inner join Futbolista ON persona.id_persona=futbolista.id_persona INNER JOIN lesion ON futbolista.id_persona=lesion.id_persona INNER JOIN trata on trata.id_lesion=lesion.id_lesion";
+        String sql = "select persona.nombre_persona,persona.apellido_persona,lesion.tipo_lesion FROM persona inner join Futbolista ON persona.id_persona=futbolista.id_persona INNER JOIN lesion ON futbolista.id_persona=lesion.id_persona";
         try{
             con = conectar.getConexion();
             ps = con.prepareStatement(sql);
@@ -32,8 +32,6 @@ public class ControlDatos {
                 datos.setNombre(rs.getString("persona.nombre_persona"));
                 datos.setApellido(rs.getString("persona.apellido_persona"));
                 datos.setTipo_lesion(rs.getString("lesion.tipo_lesion"));
-                datos.setInicio_tratamiento(rs.getString("trata.inicio_tratamiento"));
-                datos.setFin_tratamiento(rs.getString("trata.fin_tratamiento"));
                 lista.add(datos);                 
             }            
             rs.close();

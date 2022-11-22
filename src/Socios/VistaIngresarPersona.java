@@ -235,7 +235,7 @@ public class VistaIngresarPersona extends javax.swing.JFrame {
         }                                               
 
         
-        VistaIngresarCuerpo volver = new VistaIngresarCuerpo();
+        VistaIngresarSocio volver = new VistaIngresarSocio();
         volver.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_boton_siguienteActionPerformed
