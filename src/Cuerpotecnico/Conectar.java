@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /*
-    Autor: 12matienzo
     Descripción: Clase para gestionar la conexión.
  */
 public class Conectar {

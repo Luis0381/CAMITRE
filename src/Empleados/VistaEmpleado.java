@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author 12matienzo
+ * @author Luis0381
  */
 public class VistaEmpleado extends javax.swing.JFrame {
         private Conectar conectar;

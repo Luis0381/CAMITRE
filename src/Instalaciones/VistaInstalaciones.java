@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Instalaciones;
 
 import Futbolistas.ModeloFutbolista;
@@ -19,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author 12mat
+ * @author Luis0381
  */
 public class VistaInstalaciones extends javax.swing.JFrame {
 

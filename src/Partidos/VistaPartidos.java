@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author 12Matienzo
+ * @author Luis0381
  */
 public class VistaPartidos extends javax.swing.JFrame {
 

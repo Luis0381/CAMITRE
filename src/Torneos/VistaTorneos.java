@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author 12Matienzo
+ * @author Luis0381
  */
 public class VistaTorneos extends javax.swing.JFrame {
 

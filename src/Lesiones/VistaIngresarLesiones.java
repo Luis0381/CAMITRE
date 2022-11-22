@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Lesiones;
 
 import Instalaciones.*;
@@ -19,7 +15,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author 12Mat
+ * @author Luis0381
  */
 public class VistaIngresarLesiones extends javax.swing.JFrame {
         private Conectar conectar;

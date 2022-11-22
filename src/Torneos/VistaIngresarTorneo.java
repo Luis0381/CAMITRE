@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author 12Matienzo
+ * @author Luis0381
  */
 public class VistaIngresarTorneo extends javax.swing.JFrame {
         private Conectar conectar;
