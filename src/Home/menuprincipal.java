@@ -5,6 +5,7 @@
 package Home;
 
 import Cuerpotecnico.VistaCuerpotecnico;
+import Cuotas.VistaCuotas;
 import Dirigentes.VistaDirigente;
 import Empleados.VistaEmpleado;
 import Futbolistas.VistaFutbolistas;
@@ -63,6 +64,7 @@ public class menuprincipal extends javax.swing.JFrame {
         btn_torneos = new javax.swing.JButton();
         Boton_salir = new javax.swing.JButton();
         btn_dirigentes = new javax.swing.JButton();
+        btn_cuotas = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
 
@@ -154,7 +156,7 @@ public class menuprincipal extends javax.swing.JFrame {
                 btn_empleadoActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_empleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 220, 130, 50));
+        getContentPane().add(btn_empleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 280, 130, 50));
 
         btn_medicos.setBackground(new java.awt.Color(0, 0, 0));
         btn_medicos.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
@@ -223,9 +225,21 @@ public class menuprincipal extends javax.swing.JFrame {
         });
         getContentPane().add(btn_dirigentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 220, 130, 50));
 
+        btn_cuotas.setBackground(new java.awt.Color(0, 0, 0));
+        btn_cuotas.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        btn_cuotas.setForeground(new java.awt.Color(255, 153, 0));
+        btn_cuotas.setText("Control Cuotas");
+        btn_cuotas.setBorder(null);
+        btn_cuotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cuotasActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_cuotas, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 220, 130, 50));
+
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Home/mitre-santiago-del-estero-cancha2b.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 800, 500));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 490));
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 160, 140, 80));
 
         pack();
@@ -305,6 +319,12 @@ public class menuprincipal extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_btn_dirigentesActionPerformed
 
+    private void btn_cuotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cuotasActionPerformed
+        VistaCuotas dirigentes = new VistaCuotas();
+        dirigentes.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_btn_cuotasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -347,6 +367,7 @@ public class menuprincipal extends javax.swing.JFrame {
     private javax.swing.JButton boton_instalaciones;
     private javax.swing.JButton boton_mercadotransferencias;
     private javax.swing.JButton boton_socios;
+    private javax.swing.JButton btn_cuotas;
     private javax.swing.JButton btn_dirigentes;
     private javax.swing.JButton btn_empleado;
     private javax.swing.JButton btn_lesiones;
