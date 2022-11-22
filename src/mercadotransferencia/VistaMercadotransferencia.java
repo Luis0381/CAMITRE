@@ -386,7 +386,7 @@ public class VistaMercadotransferencia extends javax.swing.JFrame {
         int fila = tblDatos.getSelectedRow();
         String dni = tblDatos.getModel().getValueAt(fila,0).toString();
         
-        String sql = "delete from persona where persona.dni_persona=?";
+        String sql = "delete from involucrado where involucrado.id_futbolista=(SELECT id_persona from persona where persona.dni_persona=?)";
         
         try{
             con = conectar.getConexion();

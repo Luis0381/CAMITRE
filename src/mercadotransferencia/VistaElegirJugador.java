@@ -4,15 +4,26 @@
  */
 package mercadotransferencia;
 
+import Futbolistas.ModeloFutbolista;
 import java.awt.Image;
 import java.awt.Toolkit;
+import static java.lang.String.valueOf;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author 12Mat
  */
 public class VistaElegirJugador extends javax.swing.JFrame {
-
+        private Futbolistas.Conectar conectar;
+        private ModeloFutbolista modelo;
+        private Connection con;
     /**
      * Creates new form Vistaelegirjugador
      */
@@ -20,6 +31,66 @@ public class VistaElegirJugador extends javax.swing.JFrame {
         initComponents();
         setIconImage(getIconImage());
         setLocationRelativeTo(null);
+                conectar = new Futbolistas.Conectar();
+
+
+
+        ModeloFutbolista datos;
+        ResultSet rs;
+        PreparedStatement ps;
+        ArrayList<ModeloFutbolista> lista = new ArrayList<>();
+        String sql = "select persona.nombre_persona,persona.apellido_persona,futbolista.apodo_futbolista,futbolista.posición_futbolista,futbolista.altura_futbolista,futbolista.piernahabil_futbolista,futbolista.sueldo_futbolista,futbolista.inicio_contrato,futbolista.fin_contrato FROM futbolista INNER JOIN persona ON futbolista.id_persona=persona.id_persona";
+        
+        try{
+            con = conectar.getConexion();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                datos = new ModeloFutbolista();
+                datos.setNombre(rs.getString("persona.nombre_persona")); 
+                datos.setApellido(rs.getString("persona.apellido_persona")); 
+                datos.setApodo(rs.getString("futbolista.apodo_futbolista")); 
+                datos.setPosicion(rs.getString("futbolista.posición_futbolista")); 
+                datos.setAltura(rs.getInt("futbolista.altura_futbolista")); 
+                datos.setPiernahabil_futbolista(rs.getString("futbolista.piernahabil_futbolista")); 
+                datos.setSueldo(rs.getFloat("futbolista.sueldo_futbolista")); 
+                datos.setInicio_contrato(rs.getDate("futbolista.inicio_contrato").toString()); 
+                datos.setFin_contrato(rs.getDate("futbolista.fin_contrato").toString()); 
+                lista.add(datos);             
+            }            
+            rs.close();
+            ps.close();
+            con.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error de conexión: " + e.getMessage());
+        }
+        
+        DefaultTableModel tabla =  new DefaultTableModel();
+        String[] fila = new String[45];
+        tabla.addColumn("Nombre");
+        tabla.addColumn("Apellido");
+        tabla.addColumn("Apodo");
+        tabla.addColumn("Posicion");
+        tabla.addColumn("Altura");
+        tabla.addColumn("Pierna Habil");
+        tabla.addColumn("Sueldo");
+        tabla.addColumn("Inicio de Contrato");
+        tabla.addColumn("Fin de Contrato");
+        
+        for(int f=0; f<lista.size();f++){
+            fila[0] = lista.get(f).getNombre();
+            fila[1] = lista.get(f).getApellido();
+            fila[2] = lista.get(f).getApodo();
+            fila[3] = lista.get(f).getPosicion();
+            fila[4] = valueOf(lista.get(f).getAltura());
+            fila[5] = lista.get(f).getPiernahabil_futbolista();
+            fila[6] = valueOf(lista.get(f).getSueldo());
+            fila[7] = lista.get(f).getInicio_contrato();
+            fila[8] = lista.get(f).getFin_contrato();
+            tabla.addRow(fila);
+        }
+        tabla_jugadores.setModel(tabla);
+        
     }
     
     //Se establece el icono de la vista
@@ -39,6 +110,9 @@ public class VistaElegirJugador extends javax.swing.JFrame {
     private void initComponents() {
 
         boton_cancelar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabla_jugadores = new javax.swing.JTable();
+        boton_mov = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Club Atlético Mitre (Santiago del Estero)");
@@ -50,21 +124,50 @@ public class VistaElegirJugador extends javax.swing.JFrame {
             }
         });
 
+        tabla_jugadores.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tabla_jugadores);
+
+        boton_mov.setText("Hacer movimiento");
+        boton_mov.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_movActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(489, Short.MAX_VALUE)
-                .addComponent(boton_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(boton_mov, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 283, Short.MAX_VALUE)
+                        .addComponent(boton_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(266, Short.MAX_VALUE)
-                .addComponent(boton_cancelar)
-                .addContainerGap())
+                .addGap(38, 38, 38)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(boton_mov)
+                    .addComponent(boton_cancelar))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();
@@ -75,6 +178,34 @@ public class VistaElegirJugador extends javax.swing.JFrame {
         volver.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_boton_cancelarActionPerformed
+
+    private void boton_movActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_movActionPerformed
+
+        PreparedStatement ps;
+
+        int fila = tabla_jugadores.getSelectedRow();
+        String nombre = tabla_jugadores.getModel().getValueAt(fila,0).toString();
+        String apellido = tabla_jugadores.getModel().getValueAt(fila,1).toString();
+
+        String sql = "insert into involucrado(id_futbolista,id_movimiento) SELECT persona.id_persona,(SELECT MAX(id_movimiento) FROM movimientos) from persona where persona.nombre_persona=? and persona.apellido_persona=?";
+
+        try{
+            con = conectar.getConexion();
+            ps = con.prepareStatement(sql);
+            ps.setString(1,nombre);
+            ps.setString(2,apellido);
+            ps.executeUpdate();
+            ps.close();
+            con.close();
+        }
+        catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error de conexión: " + e.getMessage());
+        }
+        
+                VistaMercadotransferencia volver = new VistaMercadotransferencia();
+        volver.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_boton_movActionPerformed
     
     /**
      * @param args the command line arguments
@@ -114,5 +245,8 @@ public class VistaElegirJugador extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton boton_cancelar;
+    private javax.swing.JButton boton_mov;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tabla_jugadores;
     // End of variables declaration//GEN-END:variables
 }

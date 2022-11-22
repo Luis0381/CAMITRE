@@ -173,7 +173,7 @@ public class VistaIngresarMovimiento extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error de conexión: " + e.getMessage());
         }
 
-        VistaMercadotransferencia volver = new VistaMercadotransferencia();
+        VistaElegirJugador volver = new VistaElegirJugador();
         volver.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_boton_siguiente1ActionPerformed

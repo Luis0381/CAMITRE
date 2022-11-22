@@ -109,7 +109,7 @@ public class VistaDecision extends javax.swing.JFrame {
     }//GEN-LAST:event_boton_cancelarActionPerformed
 
     private void boton_jugadorexistenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_jugadorexistenteActionPerformed
-        VistaElegirJugador volver = new VistaElegirJugador();
+        VistaIngresarMovimiento volver = new VistaIngresarMovimiento();
         volver.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_boton_jugadorexistenteActionPerformed
