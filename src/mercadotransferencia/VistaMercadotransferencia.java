@@ -155,7 +155,7 @@ public class VistaMercadotransferencia extends javax.swing.JFrame {
             }
         });
 
-        boton_ingresar.setText("Ingresar");
+        boton_ingresar.setText("Nuevo");
         boton_ingresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_ingresarActionPerformed(evt);
