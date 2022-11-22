@@ -65,6 +65,8 @@ public class VistaLesiones extends javax.swing.JFrame {
         txt_tipo = new javax.swing.JTextField();
         boton_insertar = new javax.swing.JButton();
         boton_borrar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        txt_apodo = new javax.swing.JTextField();
 
         jLabel6.setText("Condicion:");
 
@@ -121,6 +123,14 @@ public class VistaLesiones extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setText("Apodo:");
+
+        txt_apodo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_apodoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -130,28 +140,37 @@ public class VistaLesiones extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(122, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 719, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(boton_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txt_apodo, javax.swing.GroupLayout.PREFERRED_SIZE, 719, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
                                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txt_apellido, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 719, Short.MAX_VALUE)
-                                    .addComponent(txt_tipo, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txt_nombre))))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txt_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 719, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(4, 4, 4)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txt_nombre, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(txt_apellido))))))))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(boton_volver, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(boton_insertar)
-                    .addComponent(boton_borrar))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(boton_borrar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(boton_buscar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(boton_insertar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(26, 26, 26))
         );
         layout.setVerticalGroup(
@@ -167,13 +186,16 @@ public class VistaLesiones extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txt_apodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(boton_buscar)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(boton_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(boton_insertar)
@@ -182,7 +204,7 @@ public class VistaLesiones extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(boton_volver))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(139, 139, 139))
+                .addGap(39, 39, 39))
         );
 
         pack();
@@ -195,25 +217,28 @@ public class VistaLesiones extends javax.swing.JFrame {
     private void boton_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_buscarActionPerformed
         String b_nombre=txt_nombre.getText().trim();
         String b_apellido=txt_apellido.getText().trim();
+        String b_apodo=txt_apodo.getText().trim();
         String b_tipo=txt_tipo.getText().trim();
 
         ModeloLesiones datos;
         ResultSet rs;
         PreparedStatement ps;
         ArrayList<ModeloLesiones> lista = new ArrayList<>();
-        String sql = "select persona.nombre_persona,persona.apellido_persona,lesion.tipo_lesion FROM persona inner join Futbolista ON persona.id_persona=futbolista.id_persona INNER JOIN lesion ON futbolista.id_persona=lesion.id_persona WHERE persona.nombre_persona LIKE ? AND persona.apellido_persona LIKE ? AND lesion.tipo_lesion LIKE ?";
+        String sql = "select persona.nombre_persona,persona.apellido_persona,futbolista.apodo_futbolista,lesion.tipo_lesion FROM persona inner join Futbolista ON persona.id_persona=futbolista.id_persona INNER JOIN lesion ON futbolista.id_persona=lesion.id_persona WHERE persona.nombre_persona LIKE ? AND persona.apellido_persona LIKE ? AND futbolista.apodo_futbolista LIKE ? AND lesion.tipo_lesion LIKE ?";
         
         try{
             con = conectar.getConexion();
             ps = con.prepareStatement(sql);
             ps.setString(1, "%" + b_nombre + "%");
             ps.setString(2, "%" + b_apellido + "%");
-            ps.setString(3, "%" + b_tipo + "%");
+            ps.setString(3, "%" + b_apodo + "%");
+            ps.setString(4, "%" + b_tipo + "%");
             rs = ps.executeQuery();
             while(rs.next()){
                 datos = new ModeloLesiones();
                 datos.setNombre(rs.getString("persona.nombre_persona"));
                 datos.setApellido(rs.getString("persona.apellido_persona"));
+                datos.setApodo(rs.getString("futbolista.apodo_futbolista"));
                 datos.setTipo_lesion(rs.getString("lesion.tipo_lesion"));
                 lista.add(datos);               
             }                    
@@ -227,19 +252,21 @@ public class VistaLesiones extends javax.swing.JFrame {
         DefaultTableModel tabla =  new DefaultTableModel();
         String[] fila = new String[45];
         tabla.addColumn("Nombre");
-        tabla.addColumn("Apellido");        
+        tabla.addColumn("Apellido");
+        tabla.addColumn("Apodo");        
         tabla.addColumn("Tipo de Lesion"); 
         for(int f=0; f<lista.size();f++){
             fila[0] = lista.get(f).getNombre();
             fila[1] = lista.get(f).getApellido();
-            fila[2] = lista.get(f).getTipo_lesion();
+            fila[2] = lista.get(f).getApodo();
+            fila[3] = lista.get(f).getTipo_lesion();
             tabla.addRow(fila);
         }
         tblDatos.setModel(tabla);
     }//GEN-LAST:event_boton_buscarActionPerformed
 
     private void boton_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_volverActionPerformed
-                menuprincipal volver = new menuprincipal();
+        menuprincipal volver = new menuprincipal();
         volver.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_boton_volverActionPerformed
@@ -256,16 +283,18 @@ public class VistaLesiones extends javax.swing.JFrame {
         int fila = tblDatos.getSelectedRow();
         String nombre = tblDatos.getModel().getValueAt(fila,0).toString();
         String apellido = tblDatos.getModel().getValueAt(fila,1).toString();
-        String lesion = tblDatos.getModel().getValueAt(fila,2).toString();
+        String apodo = tblDatos.getModel().getValueAt(fila,2).toString();
+        String lesion = tblDatos.getModel().getValueAt(fila,3).toString();
 
-        String sql = "delete lesion from lesion INNER JOIN persona ON lesion.id_persona=persona.id_persona WHERE persona.nombre_persona=? AND persona.apellido_persona=? AND lesion.tipo_lesion=?";
+        String sql = "delete lesion from lesion INNER JOIN persona ON lesion.id_persona=persona.id_persona WHERE persona.nombre_persona=? AND persona.apellido_persona=? AND futbolista.apodo_futbolista=? AND lesion.tipo_lesion=?";
 
         try{
             con = conectar.getConexion();
             ps = con.prepareStatement(sql);
             ps.setString(1,nombre);
             ps.setString(2,apellido);
-            ps.setString(3,lesion);
+            ps.setString(3,apodo);
+            ps.setString(4,lesion);
             ps.executeUpdate();
             ps.close();
             con.close();
@@ -276,6 +305,10 @@ public class VistaLesiones extends javax.swing.JFrame {
 
         llenarTabla();
     }//GEN-LAST:event_boton_borrarActionPerformed
+
+    private void txt_apodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_apodoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_apodoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -325,6 +358,7 @@ public class VistaLesiones extends javax.swing.JFrame {
     private javax.swing.JButton boton_insertar;
     private javax.swing.JButton boton_volver;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
@@ -332,6 +366,7 @@ public class VistaLesiones extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblDatos;
     private javax.swing.JTextField txt_apellido;
+    private javax.swing.JTextField txt_apodo;
     private javax.swing.JTextField txt_nombre;
     private javax.swing.JTextField txt_tipo;
     // End of variables declaration//GEN-END:variables
@@ -342,13 +377,15 @@ public class VistaLesiones extends javax.swing.JFrame {
         ArrayList<ModeloLesiones> datos;
         String[] fila = new String[45];
         tabla.addColumn("Nombre");
-        tabla.addColumn("Apellido");        
+        tabla.addColumn("Apellido"); 
+        tabla.addColumn("Apodo"); 
         tabla.addColumn("Tipo de Lesion"); 
         datos = control.llenarDatos();         
         for(int f=0; f<datos.size();f++){
             fila[0] = datos.get(f).getNombre();
             fila[1] = datos.get(f).getApellido();
-            fila[2] = datos.get(f).getTipo_lesion();
+            fila[2] = datos.get(f).getApodo();
+            fila[3] = datos.get(f).getTipo_lesion();
             tabla.addRow(fila);
         }
         tblDatos.setModel(tabla);

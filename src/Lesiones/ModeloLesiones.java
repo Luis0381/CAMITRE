@@ -3,6 +3,7 @@ package Lesiones;
 public class ModeloLesiones {
     private String nombre;
     private String apellido;
+    private String apodo;
     private String tipo_lesion;
     private String inicio_tratamiento;
     private String fin_tratamiento;
@@ -45,6 +46,14 @@ public class ModeloLesiones {
 
     public void setFin_tratamiento(String fin_tratamiento) {
         this.fin_tratamiento = fin_tratamiento;
+    }
+
+    public String getApodo() {
+        return apodo;
+    }
+
+    public void setApodo(String apodo) {
+        this.apodo = apodo;
     }
     
     
