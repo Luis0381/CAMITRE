@@ -73,6 +73,8 @@ public class VistaPartidos extends javax.swing.JFrame {
         txt_golesr = new javax.swing.JTextField();
         txt_instancia = new javax.swing.JTextField();
         txt_estadio = new javax.swing.JTextField();
+        boton_insertar = new javax.swing.JButton();
+        boton_borrar = new javax.swing.JButton();
 
         jLabel6.setText("Condicion:");
 
@@ -131,6 +133,20 @@ public class VistaPartidos extends javax.swing.JFrame {
 
         txt_estadio.setToolTipText("Ingrese el nombre del estadio que desea buscar");
 
+        boton_insertar.setText("Insertar");
+        boton_insertar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_insertarActionPerformed(evt);
+            }
+        });
+
+        boton_borrar.setText("Borrar");
+        boton_borrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_borrarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -159,11 +175,18 @@ public class VistaPartidos extends javax.swing.JFrame {
                             .addComponent(txt_torneo)))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 824, Short.MAX_VALUE)))
-                .addGap(26, 26, 26)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 835, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(boton_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(boton_volver, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(boton_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(boton_volver, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(boton_borrar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(boton_insertar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -202,13 +225,15 @@ public class VistaPartidos extends javax.swing.JFrame {
                             .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_estadio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(boton_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(311, 311, 311)
+                        .addComponent(boton_insertar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(boton_borrar)
+                        .addGap(237, 237, 237)
                         .addComponent(boton_volver))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -294,6 +319,35 @@ public class VistaPartidos extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_boton_volverActionPerformed
 
+    private void boton_insertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_insertarActionPerformed
+               VistaIngresarPartidos volver = new VistaIngresarPartidos();
+        volver.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_boton_insertarActionPerformed
+
+    private void boton_borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_borrarActionPerformed
+        PreparedStatement ps;
+
+        int fila = tblDatos.getSelectedRow();
+        String id = tblDatos.getModel().getValueAt(fila,0).toString();
+
+        String sql = "delete from partido where partido.id_partido=?";
+
+        try{
+            con = conectar.getConexion();
+            ps = con.prepareStatement(sql);
+            ps.setString(1,id);
+            ps.executeUpdate();
+            ps.close();
+            con.close();
+        }
+        catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error de conexión: " + e.getMessage());
+        }
+
+        llenarTabla();
+    }//GEN-LAST:event_boton_borrarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -337,7 +391,9 @@ public class VistaPartidos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton boton_borrar;
     private javax.swing.JButton boton_buscar;
+    private javax.swing.JButton boton_insertar;
     private javax.swing.JButton boton_volver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
