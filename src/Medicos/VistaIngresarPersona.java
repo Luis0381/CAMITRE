@@ -30,6 +30,9 @@ public class VistaIngresarPersona extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         
         conectar = new Conectar();
+//        while(jTextField1.getText().trim()== "" || jTextField2.getText().trim()== "" || jTextField3.getText().trim()== "" || jTextField4.getText().trim()== "" || jTextField5.getText().trim()== "" || jTextField6.getText().trim()== ""){
+//            boton_siguiente.setEnabled(false);
+//        }
 
     }
     
@@ -189,7 +192,7 @@ public class VistaIngresarPersona extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_cancelarActionPerformed
-        VistaCuerpotecnico volver = new VistaCuerpotecnico();
+        VistaMedicos volver = new VistaMedicos();
         volver.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_boton_cancelarActionPerformed
@@ -214,7 +217,7 @@ public class VistaIngresarPersona extends javax.swing.JFrame {
         String c_fechaNac = jTextField5.getText().trim();
         String c_genero = jTextField4.getText().trim();
         String c_pais = jTextField6.getText().trim();
-
+        
         String sql = "insert into persona (dni_persona,nombre_persona,apellido_persona,fecha_nacimiento,genero_persona,paisorigen_persona) Values (?,?,?,?,?,?)";
         
         try{
@@ -233,9 +236,9 @@ public class VistaIngresarPersona extends javax.swing.JFrame {
         catch(SQLException e){
             JOptionPane.showMessageDialog(null, "Error de conexión: " + e.getMessage());
         }                                               
-
         
-        VistaIngresarCuerpo volver = new VistaIngresarCuerpo();
+        
+        VistaIngresarMedico volver = new VistaIngresarMedico();
         volver.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_boton_siguienteActionPerformed
