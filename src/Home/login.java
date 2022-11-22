@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Home;
 
 import java.awt.Dimension;
@@ -21,14 +16,14 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
- * @author 12mat
+ * @author 12matienzo
  */
 public class login extends javax.swing.JFrame {
     Connection con;
     PreparedStatement pst;
     ResultSet rs;
     /**
-     * Creates new form login1
+     * Creates new form login
      */
     public login() {
         initComponents();
@@ -59,8 +54,8 @@ public class login extends javax.swing.JFrame {
         title = new javax.swing.JLabel();
         username = new javax.swing.JLabel();
         password = new javax.swing.JLabel();
-        username_tf = new javax.swing.JTextField();
-        password_tf = new javax.swing.JPasswordField();
+        txt_usuario = new javax.swing.JTextField();
+        txt_contraseña = new javax.swing.JPasswordField();
         boton_ingresar = new javax.swing.JButton();
         boton_restablecer = new javax.swing.JButton();
         title1 = new javax.swing.JLabel();
@@ -96,23 +91,23 @@ public class login extends javax.swing.JFrame {
         password.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         password.setText("Contraseña:");
 
-        username_tf.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        username_tf.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        username_tf.setToolTipText("Ingrese su nombre de usuario");
-        username_tf.setBorder(null);
-        username_tf.addActionListener(new java.awt.event.ActionListener() {
+        txt_usuario.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txt_usuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_usuario.setToolTipText("Ingrese su nombre de usuario");
+        txt_usuario.setBorder(null);
+        txt_usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                username_tfActionPerformed(evt);
+                txt_usuarioActionPerformed(evt);
             }
         });
 
-        password_tf.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        password_tf.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        password_tf.setToolTipText("Ingrese su contraseña");
-        password_tf.setBorder(null);
-        password_tf.addActionListener(new java.awt.event.ActionListener() {
+        txt_contraseña.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txt_contraseña.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_contraseña.setToolTipText("Ingrese su contraseña");
+        txt_contraseña.setBorder(null);
+        txt_contraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                password_tfActionPerformed(evt);
+                txt_contraseñaActionPerformed(evt);
             }
         });
 
@@ -188,8 +183,8 @@ public class login extends javax.swing.JFrame {
                                     .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(29, 29, 29)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(username_tf, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(password_tf, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(txt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txt_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -201,11 +196,11 @@ public class login extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(username)
-                    .addComponent(username_tf, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(password)
-                    .addComponent(password_tf, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(boton_ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -225,20 +220,19 @@ public class login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton_restablecerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_restablecerActionPerformed
-        // TODO add your handling code here:
-        username_tf.setText("");
-        password_tf.setText("");
+        txt_usuario.setText("");
+        txt_contraseña.setText("");
     }//GEN-LAST:event_boton_restablecerActionPerformed
 
     private void boton_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_ingresarActionPerformed
-        // TODO add your handling code here:
+
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camitre", "root", "");
             String sql = "Select * from cuenta where usuario_cuenta=? and contraseña_cuenta=?";
             PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(1, username_tf.getText());
-            pst.setString(2, password_tf.getText());
+            pst.setString(1, txt_usuario.getText());
+            pst.setString(2, txt_contraseña.getText());
             ResultSet rs = pst.executeQuery();
             if(rs.next()){
                 JOptionPane.showMessageDialog(null, "INICIO DE SESION EXITOSO");
@@ -248,8 +242,8 @@ public class login extends javax.swing.JFrame {
             }
             else{
                 JOptionPane.showMessageDialog(null, "USUARIO Y CONTRASEÑA INVALIDOS");
-                username_tf.setText("");
-                password_tf.setText("");
+                txt_usuario.setText("");
+                txt_contraseña.setText("");
             }
             con.close();
         }
@@ -258,13 +252,13 @@ public class login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_boton_ingresarActionPerformed
 
-    private void password_tfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_password_tfActionPerformed
+    private void txt_contraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_contraseñaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_password_tfActionPerformed
+    }//GEN-LAST:event_txt_contraseñaActionPerformed
 
-    private void username_tfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_username_tfActionPerformed
+    private void txt_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_usuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_username_tfActionPerformed
+    }//GEN-LAST:event_txt_usuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -303,11 +297,11 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel password;
-    private javax.swing.JPasswordField password_tf;
     private javax.swing.JLabel title;
     private javax.swing.JLabel title1;
     private javax.swing.JLabel title2;
+    private javax.swing.JPasswordField txt_contraseña;
+    private javax.swing.JTextField txt_usuario;
     private javax.swing.JLabel username;
-    private javax.swing.JTextField username_tf;
     // End of variables declaration//GEN-END:variables
 }

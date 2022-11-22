@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package mercadotransferencia;
 
 
@@ -15,7 +11,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author 12Mat
+ * @author 12Matienzo
  */
 public class VistaIngresarMercado extends javax.swing.JFrame {
         private Conectar conectar;
@@ -109,7 +105,7 @@ public class VistaIngresarMercado extends javax.swing.JFrame {
                 .addComponent(boton_aceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(boton_restablecer)
-                .addGap(14, 14, 14))
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,12 +133,12 @@ public class VistaIngresarMercado extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 31, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(boton_restablecer)
                     .addComponent(boton_aceptar)
                     .addComponent(boton_cancelar))
-                .addGap(31, 31, 31))
+                .addContainerGap())
         );
 
         pack();

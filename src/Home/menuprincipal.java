@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Home;
 
 import Cuerpotecnico.VistaCuerpotecnico;
@@ -22,7 +18,7 @@ import mercadotransferencia.VistaMercadotransferencia;
 
 /**
  *
- * @author 12Mat
+ * @author 12Matienzo
  */
 public class menuprincipal extends javax.swing.JFrame {
 
@@ -51,20 +47,20 @@ public class menuprincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btn_partidos = new javax.swing.JButton();
+        boton_partidos = new javax.swing.JButton();
         Boton_Futbolistas = new javax.swing.JButton();
         boton_mercadotransferencias = new javax.swing.JButton();
         boton_instalaciones = new javax.swing.JButton();
         boton_cuerpotecnico = new javax.swing.JButton();
         boton_socios = new javax.swing.JButton();
-        btn_empleado = new javax.swing.JButton();
-        btn_medicos = new javax.swing.JButton();
-        btn_lesiones = new javax.swing.JButton();
+        boton_empleados = new javax.swing.JButton();
+        boton_medicos = new javax.swing.JButton();
+        boton_lesiones = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        btn_torneos = new javax.swing.JButton();
-        Boton_salir = new javax.swing.JButton();
-        btn_dirigentes = new javax.swing.JButton();
-        btn_cuotas = new javax.swing.JButton();
+        boton_torneos = new javax.swing.JButton();
+        boton_salir = new javax.swing.JButton();
+        boton_dirigentes = new javax.swing.JButton();
+        boton_controlcuotas = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
 
@@ -73,18 +69,18 @@ public class menuprincipal extends javax.swing.JFrame {
         setLocation(new java.awt.Point(300, 150));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btn_partidos.setBackground(new java.awt.Color(0, 0, 0));
-        btn_partidos.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        btn_partidos.setForeground(new java.awt.Color(255, 153, 0));
-        btn_partidos.setText("Partidos");
-        btn_partidos.setToolTipText("");
-        btn_partidos.setBorder(null);
-        btn_partidos.addActionListener(new java.awt.event.ActionListener() {
+        boton_partidos.setBackground(new java.awt.Color(0, 0, 0));
+        boton_partidos.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        boton_partidos.setForeground(new java.awt.Color(255, 153, 0));
+        boton_partidos.setText("Partidos");
+        boton_partidos.setToolTipText("");
+        boton_partidos.setBorder(null);
+        boton_partidos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_partidosActionPerformed(evt);
+                boton_partidosActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_partidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 130, 50));
+        getContentPane().add(boton_partidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 130, 50));
 
         Boton_Futbolistas.setBackground(new java.awt.Color(0, 0, 0));
         Boton_Futbolistas.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
@@ -146,41 +142,41 @@ public class menuprincipal extends javax.swing.JFrame {
         });
         getContentPane().add(boton_socios, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 160, 130, 50));
 
-        btn_empleado.setBackground(new java.awt.Color(0, 0, 0));
-        btn_empleado.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        btn_empleado.setForeground(new java.awt.Color(255, 153, 0));
-        btn_empleado.setText("Empleados");
-        btn_empleado.setBorder(null);
-        btn_empleado.addActionListener(new java.awt.event.ActionListener() {
+        boton_empleados.setBackground(new java.awt.Color(0, 0, 0));
+        boton_empleados.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        boton_empleados.setForeground(new java.awt.Color(255, 153, 0));
+        boton_empleados.setText("Empleados");
+        boton_empleados.setBorder(null);
+        boton_empleados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_empleadoActionPerformed(evt);
+                boton_empleadosActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_empleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 280, 130, 50));
+        getContentPane().add(boton_empleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 280, 130, 50));
 
-        btn_medicos.setBackground(new java.awt.Color(0, 0, 0));
-        btn_medicos.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        btn_medicos.setForeground(new java.awt.Color(255, 153, 0));
-        btn_medicos.setText("Médicos");
-        btn_medicos.setBorder(null);
-        btn_medicos.addActionListener(new java.awt.event.ActionListener() {
+        boton_medicos.setBackground(new java.awt.Color(0, 0, 0));
+        boton_medicos.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        boton_medicos.setForeground(new java.awt.Color(255, 153, 0));
+        boton_medicos.setText("Médicos");
+        boton_medicos.setBorder(null);
+        boton_medicos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_medicosActionPerformed(evt);
+                boton_medicosActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_medicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, 130, 50));
+        getContentPane().add(boton_medicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, 130, 50));
 
-        btn_lesiones.setBackground(new java.awt.Color(0, 0, 0));
-        btn_lesiones.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        btn_lesiones.setForeground(new java.awt.Color(255, 153, 0));
-        btn_lesiones.setText("Lesiones");
-        btn_lesiones.setBorder(null);
-        btn_lesiones.addActionListener(new java.awt.event.ActionListener() {
+        boton_lesiones.setBackground(new java.awt.Color(0, 0, 0));
+        boton_lesiones.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        boton_lesiones.setForeground(new java.awt.Color(255, 153, 0));
+        boton_lesiones.setText("Lesiones");
+        boton_lesiones.setBorder(null);
+        boton_lesiones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_lesionesActionPerformed(evt);
+                boton_lesionesActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_lesiones, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 130, 50));
+        getContentPane().add(boton_lesiones, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 130, 50));
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 48)); // NOI18N
@@ -189,53 +185,53 @@ public class menuprincipal extends javax.swing.JFrame {
         jLabel2.setText("Club Atletico Mitre (SdE)");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 800, 90));
 
-        btn_torneos.setBackground(new java.awt.Color(0, 0, 0));
-        btn_torneos.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        btn_torneos.setForeground(new java.awt.Color(255, 153, 0));
-        btn_torneos.setText("Torneos");
-        btn_torneos.setBorder(null);
-        btn_torneos.addActionListener(new java.awt.event.ActionListener() {
+        boton_torneos.setBackground(new java.awt.Color(0, 0, 0));
+        boton_torneos.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        boton_torneos.setForeground(new java.awt.Color(255, 153, 0));
+        boton_torneos.setText("Torneos");
+        boton_torneos.setBorder(null);
+        boton_torneos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_torneosActionPerformed(evt);
+                boton_torneosActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_torneos, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 130, 50));
+        getContentPane().add(boton_torneos, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 130, 50));
 
-        Boton_salir.setBackground(new java.awt.Color(0, 0, 0));
-        Boton_salir.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        Boton_salir.setForeground(new java.awt.Color(255, 153, 0));
-        Boton_salir.setText("Salir");
-        Boton_salir.setBorder(null);
-        Boton_salir.addActionListener(new java.awt.event.ActionListener() {
+        boton_salir.setBackground(new java.awt.Color(0, 0, 0));
+        boton_salir.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        boton_salir.setForeground(new java.awt.Color(255, 153, 0));
+        boton_salir.setText("Salir");
+        boton_salir.setBorder(null);
+        boton_salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Boton_salirActionPerformed(evt);
+                boton_salirActionPerformed(evt);
             }
         });
-        getContentPane().add(Boton_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 360, 170, 60));
+        getContentPane().add(boton_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 360, 170, 60));
 
-        btn_dirigentes.setBackground(new java.awt.Color(0, 0, 0));
-        btn_dirigentes.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        btn_dirigentes.setForeground(new java.awt.Color(255, 153, 0));
-        btn_dirigentes.setText("Dirigentes");
-        btn_dirigentes.setBorder(null);
-        btn_dirigentes.addActionListener(new java.awt.event.ActionListener() {
+        boton_dirigentes.setBackground(new java.awt.Color(0, 0, 0));
+        boton_dirigentes.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        boton_dirigentes.setForeground(new java.awt.Color(255, 153, 0));
+        boton_dirigentes.setText("Dirigentes");
+        boton_dirigentes.setBorder(null);
+        boton_dirigentes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_dirigentesActionPerformed(evt);
+                boton_dirigentesActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_dirigentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 220, 130, 50));
+        getContentPane().add(boton_dirigentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 220, 130, 50));
 
-        btn_cuotas.setBackground(new java.awt.Color(0, 0, 0));
-        btn_cuotas.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        btn_cuotas.setForeground(new java.awt.Color(255, 153, 0));
-        btn_cuotas.setText("Control Cuotas");
-        btn_cuotas.setBorder(null);
-        btn_cuotas.addActionListener(new java.awt.event.ActionListener() {
+        boton_controlcuotas.setBackground(new java.awt.Color(0, 0, 0));
+        boton_controlcuotas.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        boton_controlcuotas.setForeground(new java.awt.Color(255, 153, 0));
+        boton_controlcuotas.setText("Control Cuotas");
+        boton_controlcuotas.setBorder(null);
+        boton_controlcuotas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_cuotasActionPerformed(evt);
+                boton_controlcuotasActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_cuotas, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 220, 130, 50));
+        getContentPane().add(boton_controlcuotas, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 220, 130, 50));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Home/mitre-santiago-del-estero-cancha2b.jpg"))); // NOI18N
@@ -245,11 +241,11 @@ public class menuprincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_partidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_partidosActionPerformed
+    private void boton_partidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_partidosActionPerformed
         VistaPartidos partidos = new VistaPartidos();
         partidos.setVisible(true);
         setVisible(false);
-    }//GEN-LAST:event_btn_partidosActionPerformed
+    }//GEN-LAST:event_boton_partidosActionPerformed
 
     private void boton_mercadotransferenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_mercadotransferenciasActionPerformed
         VistaMercadotransferencia mercado = new VistaMercadotransferencia();
@@ -275,31 +271,31 @@ public class menuprincipal extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_boton_sociosActionPerformed
 
-    private void btn_empleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_empleadoActionPerformed
+    private void boton_empleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_empleadosActionPerformed
         VistaEmpleado empleados = new VistaEmpleado();
         empleados.setVisible(true);
         setVisible(false);
-    }//GEN-LAST:event_btn_empleadoActionPerformed
+    }//GEN-LAST:event_boton_empleadosActionPerformed
 
-    private void btn_medicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_medicosActionPerformed
+    private void boton_medicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_medicosActionPerformed
         VistaMedicos medicos = new VistaMedicos();
         medicos.setVisible(true);
         setVisible(false);
-    }//GEN-LAST:event_btn_medicosActionPerformed
+    }//GEN-LAST:event_boton_medicosActionPerformed
 
-    private void btn_torneosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_torneosActionPerformed
+    private void boton_torneosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_torneosActionPerformed
         VistaTorneos torneos = new VistaTorneos();
         torneos.setVisible(true);
         setVisible(false);
-    }//GEN-LAST:event_btn_torneosActionPerformed
+    }//GEN-LAST:event_boton_torneosActionPerformed
 
-    private void Boton_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_salirActionPerformed
-        int opcion = JOptionPane.showOptionDialog(null, "Está seguro que desea salir?", "", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"Sí", "No"}, this);
+    private void boton_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_salirActionPerformed
+        int opcion = JOptionPane.showOptionDialog(null, "Está seguro que desea salir?","Confirmación", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"Sí", "No"}, this);
         if (opcion == JOptionPane.YES_OPTION) {
             this.dispose();
             System.exit(0);
         }
-    }//GEN-LAST:event_Boton_salirActionPerformed
+    }//GEN-LAST:event_boton_salirActionPerformed
 
     private void Boton_FutbolistasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_FutbolistasActionPerformed
         VistaFutbolistas futbolistas = new VistaFutbolistas();
@@ -307,23 +303,23 @@ public class menuprincipal extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_Boton_FutbolistasActionPerformed
 
-    private void btn_lesionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_lesionesActionPerformed
+    private void boton_lesionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_lesionesActionPerformed
         VistaLesiones lesiones = new VistaLesiones();
         lesiones.setVisible(true);
         setVisible(false);
-    }//GEN-LAST:event_btn_lesionesActionPerformed
+    }//GEN-LAST:event_boton_lesionesActionPerformed
 
-    private void btn_dirigentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_dirigentesActionPerformed
+    private void boton_dirigentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_dirigentesActionPerformed
         VistaDirigente dirigentes = new VistaDirigente();
         dirigentes.setVisible(true);
         setVisible(false);
-    }//GEN-LAST:event_btn_dirigentesActionPerformed
+    }//GEN-LAST:event_boton_dirigentesActionPerformed
 
-    private void btn_cuotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cuotasActionPerformed
+    private void boton_controlcuotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_controlcuotasActionPerformed
         VistaCuotas dirigentes = new VistaCuotas();
         dirigentes.setVisible(true);
         setVisible(false);
-    }//GEN-LAST:event_btn_cuotasActionPerformed
+    }//GEN-LAST:event_boton_controlcuotasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -362,18 +358,18 @@ public class menuprincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Boton_Futbolistas;
-    private javax.swing.JButton Boton_salir;
+    private javax.swing.JButton boton_controlcuotas;
     private javax.swing.JButton boton_cuerpotecnico;
+    private javax.swing.JButton boton_dirigentes;
+    private javax.swing.JButton boton_empleados;
     private javax.swing.JButton boton_instalaciones;
+    private javax.swing.JButton boton_lesiones;
+    private javax.swing.JButton boton_medicos;
     private javax.swing.JButton boton_mercadotransferencias;
+    private javax.swing.JButton boton_partidos;
+    private javax.swing.JButton boton_salir;
     private javax.swing.JButton boton_socios;
-    private javax.swing.JButton btn_cuotas;
-    private javax.swing.JButton btn_dirigentes;
-    private javax.swing.JButton btn_empleado;
-    private javax.swing.JButton btn_lesiones;
-    private javax.swing.JButton btn_medicos;
-    private javax.swing.JButton btn_partidos;
-    private javax.swing.JButton btn_torneos;
+    private javax.swing.JButton boton_torneos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Empleados;
 
 import Dirigentes.*;
@@ -13,7 +9,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author 12Mat
+ * @author 12Matienzo
  */
 public class VistaIngresarEmpleado extends javax.swing.JFrame {
         private Conectar conectar;
@@ -25,7 +21,6 @@ public class VistaIngresarEmpleado extends javax.swing.JFrame {
         initComponents();
         setIconImage(getIconImage());
         setLocationRelativeTo(null);
-        
         conectar = new Conectar();
     }
 
@@ -41,10 +36,10 @@ public class VistaIngresarEmpleado extends javax.swing.JFrame {
         boton_siguiente = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txt_cargo = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        boton_siguiente1 = new javax.swing.JButton();
+        txt_sueldo = new javax.swing.JTextField();
+        boton_aceptar = new javax.swing.JButton();
         boton_restablecer = new javax.swing.JButton();
 
         boton_siguiente.setText("Siguiente");
@@ -63,10 +58,10 @@ public class VistaIngresarEmpleado extends javax.swing.JFrame {
 
         jLabel3.setText("Sueldo:");
 
-        boton_siguiente1.setText("Aceptar");
-        boton_siguiente1.addActionListener(new java.awt.event.ActionListener() {
+        boton_aceptar.setText("Aceptar");
+        boton_aceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boton_siguiente1ActionPerformed(evt);
+                boton_aceptarActionPerformed(evt);
             }
         });
 
@@ -88,18 +83,18 @@ public class VistaIngresarEmpleado extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txt_cargo, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(txt_sueldo, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(boton_siguiente1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(boton_aceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(boton_restablecer)
-                .addGap(14, 14, 14))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,16 +104,16 @@ public class VistaIngresarEmpleado extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_cargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
+                    .addComponent(txt_sueldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(boton_restablecer)
-                    .addComponent(boton_siguiente1))
-                .addGap(31, 31, 31))
+                    .addComponent(boton_aceptar))
+                .addContainerGap())
         );
 
         pack();
@@ -128,14 +123,14 @@ public class VistaIngresarEmpleado extends javax.swing.JFrame {
 
     }//GEN-LAST:event_boton_siguienteActionPerformed
 
-    private void boton_siguiente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_siguiente1ActionPerformed
+    private void boton_aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_aceptarActionPerformed
 
         PreparedStatement ps;
 
-        String c_cargo = jTextField1.getText().trim();
-        String c_sueldo = jTextField3.getText().trim();
+        String c_cargo = txt_cargo.getText().trim();
+        String c_sueldo = txt_sueldo.getText().trim();
 
-        String sql = "insert into mantenimiento(id_persona,cargo_mantenimiento,sueldo_mantenimiento) Values ( (SELECT MAX(id_persona) FROM persona),?,?)";
+        String sql = "insert into mantetxt_cargo_persona,cargo_mantenimiento,sueldo_mantenimiento) Values ( (SELECT MAX(id_persona) FROM persona),?,?)";
 
         try{
             con = conectar.getConexion();
@@ -153,15 +148,15 @@ public class VistaIngresarEmpleado extends javax.swing.JFrame {
         VistaEmpleado volver = new VistaEmpleado();
         volver.setVisible(true);
         setVisible(false);
-    }//GEN-LAST:event_boton_siguiente1ActionPerformed
+    }//GEN-LAST:event_boton_aceptarActionPerformed
 
     private void boton_restablecerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_restablecerActionPerformed
-        jTextField1.setText("");
-        jTextField3.setText("");
+        txt_cargo.setText("");
+        txt_sueldo.setText("");
     }//GEN-LAST:event_boton_restablecerActionPerformed
 
     /**
-     * @param args the command line arguments
+    txt_cargorgs the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -211,13 +206,13 @@ public class VistaIngresarEmpleado extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton boton_aceptar;
     private javax.swing.JButton boton_restablecer;
     private javax.swing.JButton boton_siguiente;
-    private javax.swing.JButton boton_siguiente1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField txt_cargo;
+    private javax.swing.JTextField txt_sueldo;
     // End of variables declaration//GEN-END:variables
 }
