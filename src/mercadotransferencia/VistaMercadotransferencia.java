@@ -57,18 +57,21 @@ public class VistaMercadotransferencia extends javax.swing.JFrame {
         tblDatos = new javax.swing.JTable();
         boton_volver = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txt_nombre = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        txt_apellido = new javax.swing.JTextField();
+        txt_añomer = new javax.swing.JTextField();
         boton_buscar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        txt_tipomer = new javax.swing.JTextField();
+        txt_tipomov = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        txt_calidadmov = new javax.swing.JTextField();
+        boton_ingresar = new javax.swing.JButton();
+        boton_borrar = new javax.swing.JButton();
+        boton_resetear = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Club Atlético Mitre (Santiago del Estero)");
@@ -92,10 +95,10 @@ public class VistaMercadotransferencia extends javax.swing.JFrame {
 
         jLabel2.setText("Año mercado:");
 
-        jTextField1.setToolTipText("Ingrese el nombre que desea buscar");
-        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+        txt_nombre.setToolTipText("Ingrese el nombre que desea buscar");
+        txt_nombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField1KeyPressed(evt);
+                txt_nombreKeyPressed(evt);
             }
         });
 
@@ -103,17 +106,17 @@ public class VistaMercadotransferencia extends javax.swing.JFrame {
 
         jLabel4.setText("Apellido: ");
 
-        jTextField2.setToolTipText("Ingrese el apellido que desea buscar");
-        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+        txt_apellido.setToolTipText("Ingrese el apellido que desea buscar");
+        txt_apellido.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField2KeyPressed(evt);
+                txt_apellidoKeyPressed(evt);
             }
         });
 
-        jTextField3.setToolTipText("Ingrese el año de mercado que desea buscar");
-        jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+        txt_añomer.setToolTipText("Ingrese el año de mercado que desea buscar");
+        txt_añomer.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField3KeyPressed(evt);
+                txt_añomerKeyPressed(evt);
             }
         });
 
@@ -126,22 +129,22 @@ public class VistaMercadotransferencia extends javax.swing.JFrame {
 
         jLabel5.setText("Tipo movimiento:");
 
-        jTextField4.setToolTipText("Ingrese el tipo de mercado que desea buscar");
-        jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
+        txt_tipomer.setToolTipText("Ingrese el tipo de mercado que desea buscar");
+        txt_tipomer.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField4KeyPressed(evt);
+                txt_tipomerKeyPressed(evt);
             }
         });
 
-        jTextField5.setToolTipText("Ingrese el tipo de mercado que desea buscar");
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        txt_tipomov.setToolTipText("Ingrese el tipo de mercado que desea buscar");
+        txt_tipomov.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                txt_tipomovActionPerformed(evt);
             }
         });
-        jTextField5.addKeyListener(new java.awt.event.KeyAdapter() {
+        txt_tipomov.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField5KeyPressed(evt);
+                txt_tipomovKeyPressed(evt);
             }
         });
 
@@ -149,10 +152,31 @@ public class VistaMercadotransferencia extends javax.swing.JFrame {
 
         jLabel7.setText("Tipo mercado:");
 
-        jTextField6.setToolTipText("Ingrese la calidad de movimiento que desea buscar");
-        jTextField6.addKeyListener(new java.awt.event.KeyAdapter() {
+        txt_calidadmov.setToolTipText("Ingrese la calidad de movimiento que desea buscar");
+        txt_calidadmov.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField6KeyPressed(evt);
+                txt_calidadmovKeyPressed(evt);
+            }
+        });
+
+        boton_ingresar.setText("Ingresar");
+        boton_ingresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_ingresarActionPerformed(evt);
+            }
+        });
+
+        boton_borrar.setText("Borrar");
+        boton_borrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_borrarActionPerformed(evt);
+            }
+        });
+
+        boton_resetear.setText("Resetear");
+        boton_resetear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_resetearActionPerformed(evt);
             }
         });
 
@@ -175,16 +199,20 @@ public class VistaMercadotransferencia extends javax.swing.JFrame {
                             .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField3)
-                            .addComponent(jTextField4)
-                            .addComponent(jTextField5)
-                            .addComponent(jTextField6))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                            .addComponent(txt_nombre)
+                            .addComponent(txt_apellido)
+                            .addComponent(txt_añomer)
+                            .addComponent(txt_tipomer)
+                            .addComponent(txt_tipomov)
+                            .addComponent(txt_calidadmov))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(boton_volver, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(boton_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(boton_volver, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(boton_resetear, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(boton_ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(boton_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(boton_borrar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21))
         );
         layout.setVerticalGroup(
@@ -194,31 +222,33 @@ public class VistaMercadotransferencia extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(boton_buscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(boton_ingresar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_añomer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(boton_resetear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_tipomov, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(boton_borrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_tipomer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_calidadmov, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(boton_volver)
@@ -239,27 +269,27 @@ public class VistaMercadotransferencia extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_boton_volverActionPerformed
 
-    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+    private void txt_nombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nombreKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1KeyPressed
+    }//GEN-LAST:event_txt_nombreKeyPressed
 
-    private void jTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyPressed
+    private void txt_apellidoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_apellidoKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2KeyPressed
+    }//GEN-LAST:event_txt_apellidoKeyPressed
 
-    private void jTextField3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyPressed
+    private void txt_añomerKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_añomerKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3KeyPressed
+    }//GEN-LAST:event_txt_añomerKeyPressed
 
     private void boton_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_buscarActionPerformed
 
         
-        String buscarNombre = jTextField1.getText().trim();
-        String buscarApellido = jTextField2.getText().trim();
-        String buscarAño = jTextField3.getText().trim();
-        String buscarTipomer = jTextField4.getText().trim();
-        String buscarTipomov = jTextField5.getText().trim();
-        String buscarCalidad = jTextField6.getText().trim();
+        String buscarNombre = txt_nombre.getText().trim();
+        String buscarApellido = txt_apellido.getText().trim();
+        String buscarAño = txt_añomer.getText().trim();
+        String buscarTipomer = txt_tipomer.getText().trim();
+        String buscarTipomov = txt_tipomov.getText().trim();
+        String buscarCalidad = txt_calidadmov.getText().trim();
 
 
         ModeloMercadotransferencia datos;
@@ -328,21 +358,59 @@ public class VistaMercadotransferencia extends javax.swing.JFrame {
         tblDatos.setModel(tabla);
     }//GEN-LAST:event_boton_buscarActionPerformed
 
-    private void jTextField4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyPressed
+    private void txt_tipomerKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_tipomerKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4KeyPressed
+    }//GEN-LAST:event_txt_tipomerKeyPressed
 
-    private void jTextField5KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyPressed
+    private void txt_tipomovKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_tipomovKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5KeyPressed
+    }//GEN-LAST:event_txt_tipomovKeyPressed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void txt_tipomovActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_tipomovActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_txt_tipomovActionPerformed
 
-    private void jTextField6KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyPressed
+    private void txt_calidadmovKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_calidadmovKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6KeyPressed
+    }//GEN-LAST:event_txt_calidadmovKeyPressed
+
+    private void boton_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_ingresarActionPerformed
+        VistaIngresarPersona vistaing = new VistaIngresarPersona();
+        vistaing.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_boton_ingresarActionPerformed
+
+    private void boton_borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_borrarActionPerformed
+        PreparedStatement ps;
+        
+        int fila = tblDatos.getSelectedRow();
+        String dni = tblDatos.getModel().getValueAt(fila,0).toString();
+        
+        String sql = "delete from persona where persona.dni_persona=?";
+        
+        try{
+            con = conectar.getConexion();
+            ps = con.prepareStatement(sql);
+            ps.setString(1,dni);
+            ps.executeUpdate();         
+            ps.close();
+            con.close();
+        }
+        catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error de conexión: " + e.getMessage());
+        }                                               
+
+        llenarTabla();
+    }//GEN-LAST:event_boton_borrarActionPerformed
+
+    private void boton_resetearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_resetearActionPerformed
+        txt_nombre.setText("");
+        txt_apellido.setText("");
+        txt_añomer.setText("");
+        txt_tipomov.setText("");
+        txt_tipomer.setText("");
+        txt_calidadmov.setText("");
+    }//GEN-LAST:event_boton_resetearActionPerformed
 
     /**
      * @param args the command line arguments
@@ -635,7 +703,10 @@ public class VistaMercadotransferencia extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton boton_borrar;
     private javax.swing.JButton boton_buscar;
+    private javax.swing.JButton boton_ingresar;
+    private javax.swing.JButton boton_resetear;
     private javax.swing.JButton boton_volver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -645,13 +716,13 @@ public class VistaMercadotransferencia extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JTable tblDatos;
+    private javax.swing.JTextField txt_apellido;
+    private javax.swing.JTextField txt_añomer;
+    private javax.swing.JTextField txt_calidadmov;
+    private javax.swing.JTextField txt_nombre;
+    private javax.swing.JTextField txt_tipomer;
+    private javax.swing.JTextField txt_tipomov;
     // End of variables declaration//GEN-END:variables
 
     
