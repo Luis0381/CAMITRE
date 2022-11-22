@@ -375,8 +375,8 @@ public class VistaMercadotransferencia extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_calidadmovKeyPressed
 
     private void boton_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_ingresarActionPerformed
-        VistaIngresarPersona vistaing = new VistaIngresarPersona();
-        vistaing.setVisible(true);
+        VistaIngresar vista = new VistaIngresar();
+        vista.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_boton_ingresarActionPerformed
 

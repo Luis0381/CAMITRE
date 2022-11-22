@@ -48,13 +48,15 @@ public class VistaIngresarMercado extends javax.swing.JFrame {
     private void initComponents() {
 
         boton_siguiente = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
-        boton_siguiente1 = new javax.swing.JButton();
+        boton_aceptar = new javax.swing.JButton();
         boton_restablecer = new javax.swing.JButton();
+        boton_cancelar = new javax.swing.JButton();
 
         boton_siguiente.setText("Siguiente");
         boton_siguiente.addActionListener(new java.awt.event.ActionListener() {
@@ -62,6 +64,8 @@ public class VistaIngresarMercado extends javax.swing.JFrame {
                 boton_siguienteActionPerformed(evt);
             }
         });
+
+        jLabel4.setText("jLabel4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Club Atlético Mitre (Santiago del Estero)");
@@ -73,10 +77,10 @@ public class VistaIngresarMercado extends javax.swing.JFrame {
 
         jLabel3.setText("Tipo mercado:");
 
-        boton_siguiente1.setText("Siguiente");
-        boton_siguiente1.addActionListener(new java.awt.event.ActionListener() {
+        boton_aceptar.setText("Aceptar");
+        boton_aceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boton_siguiente1ActionPerformed(evt);
+                boton_aceptarActionPerformed(evt);
             }
         });
 
@@ -87,13 +91,22 @@ public class VistaIngresarMercado extends javax.swing.JFrame {
             }
         });
 
+        boton_cancelar.setText("Cancelar");
+        boton_cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_cancelarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(boton_siguiente1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(boton_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(boton_aceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(boton_restablecer)
                 .addGap(14, 14, 14))
@@ -127,7 +140,8 @@ public class VistaIngresarMercado extends javax.swing.JFrame {
                 .addGap(18, 31, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(boton_restablecer)
-                    .addComponent(boton_siguiente1))
+                    .addComponent(boton_aceptar)
+                    .addComponent(boton_cancelar))
                 .addGap(31, 31, 31))
         );
 
@@ -138,20 +152,18 @@ public class VistaIngresarMercado extends javax.swing.JFrame {
 
     }//GEN-LAST:event_boton_siguienteActionPerformed
 
-    private void boton_siguiente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_siguiente1ActionPerformed
+    private void boton_aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_aceptarActionPerformed
 
         PreparedStatement ps;
 
         String c_año = jTextField1.getText().trim();
         String c_tipo = jTextField2.getText().trim();
-        String sql1 = "insert into participa(id_persona,id_mercado) Values ((SELECT MAX(id_persona) FROM persona),(SELECT MAX(id_mercado) FROM mercado_transferencias))"; //
         String sql = "insert into mercado_transferencias(año_mercado,tipo_mercado) Values (?,?)";
 
         try{
             con = conectar.getConexion();
             
             ps = con.prepareStatement(sql);
-            ps = con.prepareStatement(sql1); //
             ps.setString(1,c_año);
             ps.setString(2,c_tipo);
             ps.executeUpdate();
@@ -162,15 +174,21 @@ public class VistaIngresarMercado extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error de conexión: " + e.getMessage());
         }
 
-        VistaIngresarMovimiento ir = new VistaIngresarMovimiento();
-        ir.setVisible(true);
+        VistaMercadotransferencia vista = new VistaMercadotransferencia();
+        vista.setVisible(true);
         setVisible(false);
-    }//GEN-LAST:event_boton_siguiente1ActionPerformed
+    }//GEN-LAST:event_boton_aceptarActionPerformed
 
     private void boton_restablecerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_restablecerActionPerformed
         jTextField1.setText("");
         jTextField2.setText("");
     }//GEN-LAST:event_boton_restablecerActionPerformed
+
+    private void boton_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_cancelarActionPerformed
+        VistaMercadotransferencia vista = new VistaMercadotransferencia();
+        vista.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_boton_cancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,12 +229,14 @@ public class VistaIngresarMercado extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton boton_aceptar;
+    private javax.swing.JButton boton_cancelar;
     private javax.swing.JButton boton_restablecer;
     private javax.swing.JButton boton_siguiente;
-    private javax.swing.JButton boton_siguiente1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
